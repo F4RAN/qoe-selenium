@@ -1,0 +1,3 @@
+[INFO  2022-09-06T22:41:16,713 net.lightbody.bmp.proxy.Main] (main) Starting BrowserMob Proxy version 2.1.4 
+[INFO  2022-09-06T22:41:16,801 org.eclipse.jetty.util.log] (main) jetty-7.x.y-SNAPSHOT 
+[INFO  2022-09-06T22:41:16,839 org.eclipse.jetty.util.log] (main) started o.e.j.s.ServletContextHandler{/,null} 
