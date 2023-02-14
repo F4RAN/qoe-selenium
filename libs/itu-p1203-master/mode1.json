@@ -1,0 +1,997 @@
+{
+    "I11": {
+        "segments": [
+            {
+                "bitrate": 159.24,
+                "codec": "aac",
+                "duration": 10.072389,
+                "start": 0
+            }
+        ],
+        "streamId": 42
+    },
+    "I13": {
+        "segments": [
+            {
+                "bitrate": 522.39,
+                "codec": "h264",
+                "duration": 10.072389,
+                "fps": 23.976023976023978,
+                "frames": [
+                    {
+                        "frameSize": "38903",
+                        "frameType": "I"
+                    },
+                    {
+                        "frameSize": "7891",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "2064",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "2142",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "992",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "4244",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1269",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "981",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "503",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "5235",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1474",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1023",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "654",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "4755",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1424",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "760",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "564",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "4707",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1543",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "737",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "560",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "4783",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1339",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "786",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "526",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "5260",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1112",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "853",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "448",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "4005",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1191",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "508",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "594",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "5732",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1792",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1008",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "812",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "4322",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1368",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "769",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "526",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "4973",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1568",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "885",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "695",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "5193",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1501",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "861",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "596",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "4665",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1317",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "670",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "506",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "3985",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1018",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "699",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "401",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "3350",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1072",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "620",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "494",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "4635",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1766",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "838",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "781",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "5256",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "2676",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1281",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1518",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "9309",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "3478",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "2226",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1891",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "9396",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "3164",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1975",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1036",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "5665",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1812",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1115",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "725",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "5491",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1789",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "943",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "775",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "4111",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1336",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "781",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "612",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "6698",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "2375",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1176",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1251",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "6770",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1670",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1113",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "674",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "4005",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "922",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "810",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "433",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "6386",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "2062",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "952",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "987",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "4661",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1734",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "835",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "590",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "5358",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1988",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "913",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "936",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "6057",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1962",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1046",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "959",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "3145",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1259",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1408",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "40014",
+                        "frameType": "I"
+                    },
+                    {
+                        "frameSize": "5663",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1629",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "969",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "721",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "4402",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1378",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "615",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "805",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "4242",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1194",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "778",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "429",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "4097",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1654",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "702",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "798",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "6202",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "2235",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1214",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1080",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "8090",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "2765",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1547",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1583",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "9220",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "2714",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1879",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1200",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "6350",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1850",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1257",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "820",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "5744",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1793",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "967",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "756",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "6225",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1639",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1031",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "621",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "6040",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1923",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "827",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1053",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "7472",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1882",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1559",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "816",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "5585",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1374",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "919",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "517",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "5108",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1267",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "593",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "524",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "4744",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1135",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "623",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "473",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "4800",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1309",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "507",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "869",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "7588",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "2213",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "872",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1447",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "7916",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "2185",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1355",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "923",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "6432",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1777",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "779",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "857",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "6125",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "2208",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1029",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1233",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "6278",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "2581",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1177",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1422",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "7038",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "3090",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1597",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1468",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "6980",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "2687",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1988",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1280",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "5987",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "2506",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1250",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1839",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "6200",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "2934",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1650",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1514",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "8687",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "3623",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1641",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1883",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "6833",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "3557",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1534",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "2253",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "9071",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "4246",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "2631",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "2225",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "7883",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "3403",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1943",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1677",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "3445",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1447",
+                        "frameType": "Non-I"
+                    },
+                    {
+                        "frameSize": "1400",
+                        "frameType": "Non-I"
+                    }
+                ],
+                "resolution": "1920x1080",
+                "start": 0
+            }
+        ],
+        "streamId": 42
+    },
+    "I23": {
+        "stalling": [],
+        "streamId": 42
+    },
+    "IGen": {
+        "device": "pc",
+        "displaySize": "1920x1080",
+        "viewingDistance": "150cm"
+    }
+}
