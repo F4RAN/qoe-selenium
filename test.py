@@ -7,6 +7,25 @@ from itu_p1203 import extractor
 from itu_p1203 import p1203_standalone
 
 
+def convert_ts_to_mp4(ts):
+    print(f"Converting {ts} to mp4...")
+    command = ['ffmpeg', '-i', f'./libs/ts_files/{ts}.ts', '-c', 'copy', '-bsf:a', 'aac_adtstoasc', '-f', 'mp4', f'./libs/mp4_files/{ts}.mp4']
+    result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    if result.returncode == 0:
+        return True
+    else:
+        return False
+
+def calculate_mos(mp4):
+    print(f"Calculating {mp4} to mos...")
+    input_data = extractor.Extractor([f"./libs/mp4_files/{mp4}.mp4"], 3)  # input .ts files, mode
+    inp = input_data.extract()
+    # Calculate Stalling Here
+    # Use p1203_standalone to calculate parameters and send it to output
+    out = p1203_standalone.P1203Standalone(inp)
+    res = out.calculate_complete()
+    return dict(res)['O46']
+
 def test_mp4_file():
     input_data = extractor.Extractor(["./test/jadi-low-again.mp4"], 3)  # input .ts files, mode
     inp = input_data.extract()

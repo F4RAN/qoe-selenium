@@ -6,6 +6,7 @@ Babel==2.10.3
 bcrypt==3.2.2
 beautifulsoup4==4.11.1
 bibtexparser==1.2.0
+browsermob-proxy==0.8.0
 certifi==2022.5.18.1
 cffi==1.15.0
 charset-normalizer==2.0.12
@@ -75,7 +76,7 @@ reportlab==3.6.9
 requests==2.28.2
 scholarly==1.7.0
 SciPy==1.10.1
-selenium==4.2.0
+selenium==4.8.3
 six==1.16.0
 slugify==0.0.1
 sniffio==1.2.0

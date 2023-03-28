@@ -1,6 +1,5 @@
 import json
 import os
-import subprocess
 from time import sleep
 from browsermobproxy import Server
 from selenium import webdriver
@@ -10,6 +9,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import wait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+
+from process_har import process_har
 
 url = "https://www.aparat.com/faarawn"
 duration = 10
@@ -31,6 +32,7 @@ proxy = server.create_proxy()
 co = webdriver.ChromeOptions()
 co.add_argument('--ignore-ssl-errors=yes')
 co.add_argument('--ignore-certificate-errors')
+co.add_argument('--proxy-bypass-list=aparat.com"')
 co.add_argument('--proxy-server={host}:{port}'.format(host='localhost', port=proxy.port))
 
 driver = webdriver.Chrome(executable_path=r'./libs/chromedriver', options=co)
@@ -66,3 +68,7 @@ with open("network_log1.har", "w", encoding="utf-8") as f:
 
 server.stop()
 driver.quit()
+
+process_har(json.dumps(proxy.har))
+
+
