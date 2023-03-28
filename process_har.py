@@ -19,7 +19,6 @@ all_results = []
 
 def calculate(urls):
     converted_to_mp4 = []
-    all_results = []
     for url in urls:
         print(url)
         file_name = f"{url.split('.ts')[0].split('/')[-1]}-{datetime.timestamp(datetime.now())}"
@@ -27,12 +26,10 @@ def calculate(urls):
         convert_ts_to_mp4(file_name)
         converted_to_mp4.append(file_name)
 
-
-    for file in converted_to_mp4:
-        mos = calculate_mos(file)
-        all_results.append({'file':file, 'mos':mos})
-
-    print(all_results)
+    mos = calculate_mos(converted_to_mp4)
+    print("=-=-=-=-=-=-=-=- MOS Calculation Completed =-=-=-=-=-=-=-=-=-")
+    print("Score is:"+ " " + str(mos))
+    print("=-=-=-=-=-=- Process terminated successfully. =-=-=-=-=-=-=-")
 
 def process_har(har):
     urls = []

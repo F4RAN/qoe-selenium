@@ -14,7 +14,7 @@ from process_har import process_har
 
 url = "https://www.aparat.com/faarawn"
 duration = 10
-
+stopped = False
 
 def hover(driver):
     action = ActionChains(driver)
@@ -33,6 +33,9 @@ co = webdriver.ChromeOptions()
 co.add_argument('--ignore-ssl-errors=yes')
 co.add_argument('--ignore-certificate-errors')
 co.add_argument('--proxy-bypass-list=aparat.com"')
+co.add_argument('--headless')
+co.add_argument('--mute-audio')
+co.add_argument('--disable-gpu')
 co.add_argument('--proxy-server={host}:{port}'.format(host='localhost', port=proxy.port))
 
 driver = webdriver.Chrome(executable_path=r'./libs/chromedriver', options=co)
@@ -57,7 +60,12 @@ sleep(duration)
 
 hover(driver)
 
-driver.find_element(By.CLASS_NAME, "romeo-button").click()
+try:
+    driver.find_element(By.CLASS_NAME, "romeo-button").click()
+except:
+    server.stop()
+    driver.quit()
+    stopped = True
 print(f'after {duration} seconds video stopped')
 # driver.close()
 print("process ended.")
@@ -66,8 +74,9 @@ print('===============QoE Assessment in Multimedia===============')
 with open("network_log1.har", "w", encoding="utf-8") as f:
     f.write(json.dumps(proxy.har))
 
-server.stop()
-driver.quit()
+if not stopped:
+    server.stop()
+    driver.quit()
 
 process_har(json.dumps(proxy.har))
 

@@ -16,15 +16,19 @@ def convert_ts_to_mp4(ts):
     else:
         return False
 
-def calculate_mos(mp4):
-    print(f"Calculating {mp4} to mos...")
-    input_data = extractor.Extractor([f"./libs/mp4_files/{mp4}.mp4"], 3)  # input .ts files, mode
+def calculate_mos(mp4s):
+    print(f"Calculating mos...")
+    address = []
+    for mp4 in mp4s:
+        address.append(f'./libs/mp4_files/{mp4}.mp4')
+    input_data = extractor.Extractor(address, 3)  # input .ts files, mode
     inp = input_data.extract()
     # Calculate Stalling Here
     # Use p1203_standalone to calculate parameters and send it to output
     out = p1203_standalone.P1203Standalone(inp)
     res = out.calculate_complete()
-    return dict(res)['O46']
+    return res['O46']
+
 
 def test_mp4_file():
     input_data = extractor.Extractor(["./test/jadi-low-again.mp4"], 3)  # input .ts files, mode
