@@ -2,7 +2,9 @@ import json
 import re
 import urllib.request
 from datetime import datetime
+from haralyzer import HarParser, HarPage
 
+import db
 from test import convert_ts_to_mp4, calculate_mos
 
 # har_file_path = "network_log1.har"
@@ -17,7 +19,8 @@ downloaded_files = []
 
 all_results = []
 
-def calculate(urls):
+
+def calculate(urls, test_model):
     converted_to_mp4 = []
     for url in urls:
         print(url)
@@ -27,12 +30,21 @@ def calculate(urls):
         converted_to_mp4.append(file_name)
 
     mos = calculate_mos(converted_to_mp4)
+    test_model.set_mos(mos)
     print("=-=-=-=-=-=-=-=- MOS Calculation Completed =-=-=-=-=-=-=-=-=-")
-    print("Score is:"+ " " + str(mos))
+    print("Score is:" + " " + str(mos))
     print("=-=-=-=-=-=- Process terminated successfully. =-=-=-=-=-=-=-")
 
-def process_har(har):
+    # DB Jobs
+    test_model.create_db_record()
+    test_model.insert_db_record()
+    test_model.drop_db_connection()
+    print("Data Collection Success.")
+
+
+def process_har(har, test_model):
     urls = []
+    test_model.extract_har_parameters(har)
     for log in json.loads(har)['log']['entries']:
         try:
             # URL is present inside the following keys
@@ -47,4 +59,6 @@ def process_har(har):
             if is_ts and not is_ad: urls.append(url)
         except Exception as e:
             pass
-    calculate(urls)
+    calculate(urls, test_model)
+
+

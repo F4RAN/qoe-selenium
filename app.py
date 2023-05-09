@@ -1,5 +1,8 @@
+import datetime
 import json
 import os
+import sqlite3
+import time
 from time import sleep
 from browsermobproxy import Server
 from selenium import webdriver
@@ -10,11 +13,13 @@ from selenium.webdriver.support import wait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
+from db import DB_OBJECT
 from process_har import process_har
 
 url = "https://www.aparat.com/faarawn"
 duration = 10
 stopped = False
+
 
 def hover(driver):
     action = ActionChains(driver)
@@ -47,17 +52,31 @@ driver.get(url)
 sleep(2)
 elem = driver.find_element(By.CLASS_NAME, "poster")
 elem.click()
+# Measure page load time and throughput
+start_time = time.time()
+driver.find_element(By.TAG_NAME, 'html')
+end_time = time.time()
+page_load_time = end_time - start_time
+throughput = len(driver.page_source) / page_load_time
+test_model = DB_OBJECT()
+test_model.initial_parameters_calculation(url,throughput,page_load_time)
+timing_script = """
+return performance.timing;
+"""
+timing_data = driver.execute_script(timing_script)
+test_model.extract_browser_parameters(timing_data)
+
 driver.implicitly_wait(5000)
 control_button = driver.find_element(By.CLASS_NAME, "romeo-player-tooltip")
 
 wait = WebDriverWait(driver, 10)
+
 advertise = wait.until(EC.element_to_be_clickable((By.CLASS_NAME, 'vast-skip-button')))
 
 # advertise= driver.find_element(By.CLASS_NAME, "vast-skip-button")
 if advertise: advertise.click()
 print('video started')
 sleep(duration)
-
 hover(driver)
 
 try:
@@ -66,6 +85,7 @@ except:
     server.stop()
     driver.quit()
     stopped = True
+
 print(f'after {duration} seconds video stopped')
 # driver.close()
 print("process ended.")
@@ -78,6 +98,4 @@ if not stopped:
     server.stop()
     driver.quit()
 
-process_har(json.dumps(proxy.har))
-
-
+process_har(json.dumps(proxy.har),test_model)
