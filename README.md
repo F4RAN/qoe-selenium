@@ -15,6 +15,12 @@ python3 app.py --file path/to/aparat_urls
 # Example
 python3 app.py --file ./aparat_file.txt
 ```
+file structure: aparat_file.txt:
+![img.png](img.png)
+
+You must use compatible chromedriver of your os, you can use below link to download suitable version of chrome depended on your Chrome version:
+https://chromedriver.chromium.org/downloads
+
 
 ## Installation scenario on macOS
 this implementation just works on ffmpeg version 4
