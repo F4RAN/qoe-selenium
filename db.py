@@ -193,9 +193,6 @@ class DB_OBJECT:
         self.packet_loss = qos['packet_loss']
 
     def extract_har_parameters(self, har):
-        print(type(self.total_size), type(self.total_size_trans), type(self.page_size),
-              type(self.image_size), type(self.css_size), type(self.text_size),
-              self.total_size)
         # Parse the HAR file data
         har_data = json.loads(har)
         har_parser = HarParser.from_string(har)

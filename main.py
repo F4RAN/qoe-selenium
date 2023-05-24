@@ -8,8 +8,10 @@ from selenium.webdriver.support.wait import WebDriverWait
 from db import DB_OBJECT
 from process_har import process_har
 
+timeout = 30
 duration = 10
-
+check_advertise_time = 3
+while_sleep = 1
 
 def hover(driver):
     action = ActionChains(driver)
@@ -19,7 +21,7 @@ def hover(driver):
 
 
 def crawl(url, driver, server, proxy):
-    stopped = False
+    advertise = True
     print('===============QoE Assessment in Multimedia===============')
     print(f"Request to {url}")
     driver.get(url)
@@ -36,68 +38,95 @@ def crawl(url, driver, server, proxy):
     """
     timing_data = driver.execute_script(timing_script)
     test_model.extract_browser_parameters(timing_data)
-
-    driver.implicitly_wait(20)
-    driver.find_element(By.CLASS_NAME, "romeo-player-tooltip")
-    WebDriverWait(driver, 10)
     try:
-        start = WebDriverWait(driver, 20).until(
+        WebDriverWait(driver, timeout).until(
+            EC.presence_of_element_located((By.CLASS_NAME, "romeo-player-tooltip"))
+        )
+    except:
+        return False
+
+    try:
+        start = WebDriverWait(driver, timeout).until(
             EC.element_to_be_clickable((By.CLASS_NAME, 'romeo-play-toggle'))
         )
         start.click()
+        time.sleep(check_advertise_time)
     except:
-        print("Not found start button")
-
-    # Wait until the element is clickable with the specified timeout
+        return False
     try:
         hover(driver)
-        advertise = WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.CLASS_NAME, 'vast-skip-button'))
-        )
+        driver.find_element(By.CLASS_NAME, 'vast-skip-counter')
+        skip = True
     except:
         advertise = False
-        pass
+        skip = False
+
+
+    # Wait until the element is clickable with the specified timeout
+    if skip:
+        try:
+            hover(driver)
+            advertise = WebDriverWait(driver, check_advertise_time).until(
+                EC.element_to_be_clickable((By.CLASS_NAME, 'vast-skip-button'))
+            )
+        except:
+            advertise = False
+            pass
 
     # advertise= driver.find_element(By.CLASS_NAME, "vast-skip-button")
-    if advertise:
+    if advertise and skip:
         advertise.click()
-    else:
-        try:
-            play_button = WebDriverWait(driver, 10).until(
-                EC.element_to_be_clickable((By.CLASS_NAME, 'romeo-play-toggle'))
-            )
-            play_button.click()
-        except:
-            return False
+    # else:
+    #     try:
+    #         play_button = WebDriverWait(driver, 10).until(
+    #             EC.element_to_be_clickable((By.CLASS_NAME, 'romeo-play-toggle'))
+    #         )
+    #         play_button.click()
+    #     except:
+    #         return False
 
     print('video started')
     start_time = datetime.datetime.now()
-    time.sleep(duration)
-    hover(driver)
+    # If have advertise must played check_advertise_time seconds
+    # time.sleep(duration) if advertise else time.sleep(duration - check_advertise_time)
+    counter = 0
+    # Try to pause
+    while True:
+        if counter > timeout - duration:
+            break
+        hover(driver)
+        try:
+            element = driver.find_element_by_css_selector(".romeo-current")
+            current = int(element.get_attribute("innerText").split(":")[1])
+            if int(current) >= duration:
+                driver.find_element(By.CLASS_NAME, "romeo-play-toggle").click()
+                print(
+                    f'after {duration + counter if advertise == False else duration + counter} seconds video stopped')
+                break
+        except:
+            pass
 
-    try:
-        driver.find_element(By.CLASS_NAME, "romeo-button").click()
-    except:
-        server.stop()
-        driver.quit()
-        stopped = True
+        time.sleep(while_sleep)
+        counter += 1
+
     video = driver.find_element(By.TAG_NAME, "video")
     resolution = (video.get_attribute('videoWidth'), video.get_attribute('videoHeight'))
     test_model.resolution = resolution
-    print(f'after {duration} seconds video stopped')
+
     quality = driver.execute_script("return arguments[0].getVideoPlaybackQuality()", video)
     total_frames = quality['totalVideoFrames']
     # driver.close()
     print("process ended.")
-    if not stopped:
-        server.stop()
-        driver.quit()
+
+    # Timed out or pass duration
+    server.stop()
+    driver.quit()
+
     end_time = datetime.datetime.now()
-    main_video_duration = (end_time - start_time).total_seconds()
+    main_video_duration = (duration + counter) if counter <= timeout - duration else timeout
     test_model.main_video_duration = main_video_duration
     avg_frame_rate = quality['totalVideoFrames'] / main_video_duration
     test_model.avg_frame_rate = avg_frame_rate
-
 
     print('===============QoE Assessment in Multimedia===============')
 
