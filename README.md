@@ -1,6 +1,6 @@
 ## Run App
 Run comma separated links:
-```python
+```bash
 # Command
 python3 app.py --link aparat_url_1,aparat_url_2,aparat_url_3 ...
 
@@ -8,7 +8,7 @@ python3 app.py --link aparat_url_1,aparat_url_2,aparat_url_3 ...
 python3 app.py --link https://www.aparat.com/v/BQSoN,https://www.aparat.com/v/eBvdL,https://www.aparat.com/v/2AtcF
 ```
 Run file (each line including one link)
-```python
+```bash
 # Command
 python3 app.py --file path/to/aparat_urls
 
