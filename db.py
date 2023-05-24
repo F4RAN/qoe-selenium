@@ -9,6 +9,7 @@ class DB_OBJECT:
         self.conn = ""
         self.c = ""
         self.url = ""
+        # From Selenium (Browser)
         self.throughput = 0
         self.page_load_time = 0
         self.dns_resolution_time = 0
@@ -34,6 +35,20 @@ class DB_OBJECT:
         self.audio_load_time = 0
         self.video_load_time = 0
         self.html_load_time = 0
+        self.resolution = (0, 0)
+        self.main_video_duration = 0
+        self.avg_frame_rate = 0
+        # From QoS Calculation
+        self.startup_time = 0
+        self.buffering_time = 0
+        self.buffering_ratio = -1
+        self.avg_rebuffering_time = -1
+        self.total_size_with_buffer = -1
+        self.avg_bitrate = -1
+        self.delay_qos = -1
+        self.jitter = -1
+        self.packet_loss = -1
+        # From QoE Calculation
         self.mos = 0
 
     def create_db_record(self):
@@ -54,27 +69,29 @@ class DB_OBJECT:
                               ttfb FLOAT,
                               content_load_time FLOAT,
                               mos FLOAT,
-                              total_load_time FLOAT,
-                              total_size FLOAT,
-                              total_size_trans FLOAT,
-                              page_size FLOAT,
-                              image_size FLOAT,
-                              css_size FLOAT,
-                              text_size FLOAT,
-                              js_size FLOAT,
-                              audio_size FLOAT,
-                              video_size FLOAT,
                               initial_load_time FLOAT,
                               page_load_time FLOAT,
                               css_load_time FLOAT,
                               js_load_time FLOAT,
                               audio_load_time FLOAT,
                               video_load_time FLOAT,
-                          html_load_time FLOAT)''')
+                              html_load_time FLOAT,
+                              video_width INTEGER,
+                              video_height INTEGER,
+                              main_video_duration FLOAT,
+                              avg_frame_rate FLOAT,
+                              startup_time FLOAT,
+                              buffering_time FLOAT,
+                              buffering_ratio FLOAT,
+                              avg_rebuffering_time FLOAT,
+                              total_size_with_buffer FLOAT,
+                              avg_bitrate FLOAT,
+                              delay_qos FLOAT,
+                              jitter FLOAT,
+                              packet_loss FLOAT        
+                          )''')
 
     def insert_db_record(self):
-        # PING JITTER THROUGHPUT PACKET_LOSS
-        print(float(self.mos))
         insert_data = (
             self.url,
             datetime.datetime.now(),
@@ -85,23 +102,26 @@ class DB_OBJECT:
             self.ttfb,
             float(self.content_load_time),
             round(float(self.mos), 2),
-            self.total_load_time,
-            self.total_size,
-            self.total_size_trans,
-            self.page_size,
-            self.image_size,
-            self.css_size,
-            self.text_size,
-            self.js_size,
-            self.audio_size,
-            self.video_size,
             self.initial_load_time,
             self.page_load_time,
             self.css_load_time,
             self.js_load_time,
             self.audio_load_time,
             self.video_load_time,
-            self.html_load_time
+            self.html_load_time,
+            self.resolution[0],
+            self.resolution[1],
+            self.main_video_duration,
+            self.avg_frame_rate,
+            self.startup_time,
+            self.buffering_time,
+            self.buffering_ratio,
+            self.avg_rebuffering_time,
+            self.total_size_with_buffer,
+            self.avg_bitrate,
+            self.delay_qos,
+            self.jitter,
+            self.packet_loss
         )
 
         self.c.execute(
@@ -115,25 +135,28 @@ class DB_OBJECT:
                 ttfb, 
                 content_load_time, 
                 mos, 
-                total_load_time, 
-                total_size, 
-                total_size_trans, 
-                page_size, 
-                image_size, 
-                css_size, 
-                text_size, 
-                js_size, 
-                audio_size, 
-                video_size, 
                 initial_load_time, 
                 page_load_time, 
                 css_load_time, 
                 js_load_time, 
                 audio_load_time, 
                 video_load_time, 
-                html_load_time
+                html_load_time,
+                video_width,
+                video_height,
+                main_video_duration,
+                avg_frame_rate,
+                startup_time,
+                buffering_time,
+                buffering_ratio,
+                avg_rebuffering_time,
+                total_size_with_buffer,
+                avg_bitrate,
+                delay_qos,
+                jitter,
+                packet_loss             
             ) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
             insert_data
         )
 
@@ -142,7 +165,7 @@ class DB_OBJECT:
         self.conn.commit()
         self.conn.close()
 
-    def initial_parameters_calculation(self,url, throughput, page_load_time):
+    def initial_parameters_calculation(self, url, throughput, page_load_time):
         self.url = url
         self.throughput = throughput
         self.page_load_time = page_load_time
@@ -157,13 +180,26 @@ class DB_OBJECT:
     def set_mos(self, mos):
         self.mos = mos
 
+    def set_qos(self, qos):
+
+        self.startup_time = qos['startup_time']
+        self.buffering_time = qos['buffering_time']
+        self.buffering_ratio = qos['buffering_ratio']
+        self.avg_rebuffering_time = qos['avg_rebuffering_time']
+        self.total_size_with_buffer = qos['total_size']
+        self.avg_bitrate = qos['avg_bitrate']
+        self.delay_qos = qos['delay']
+        self.jitter = qos['jitter']
+        self.packet_loss = qos['packet_loss']
+
     def extract_har_parameters(self, har):
+        print(type(self.total_size), type(self.total_size_trans), type(self.page_size),
+              type(self.image_size), type(self.css_size), type(self.text_size),
+              self.total_size)
         # Parse the HAR file data
         har_data = json.loads(har)
         har_parser = HarParser.from_string(har)
-        har_page = HarPage('aparat.ir/',har_data=har_data)
-
-        self.total_load_time = har_page.get_load_time
+        har_page = HarPage('aparat.ir/', har_data=har_data)
         self.total_size = har_page.get_total_size
         self.total_size_trans = har_page.get_total_size_trans
         self.page_size = har_page.page_size

@@ -2,33 +2,41 @@ import datetime
 import json
 import re
 import statistics
-
 from haralyzer import HarPage
 import subprocess
+import re
+import statistics
+import subprocess
 
-with open("network_log1.har") as f:
-    har_json = f.read()
-har_dict = json.loads(har_json)
 
-
-def get_delay_jitter(host, count=3):
+def get_main_parameters(host, count=5):
     print("Pinging host: " + host)
     try:
         ping_output = subprocess.check_output(['ping', '-c', str(count), host], stderr=subprocess.STDOUT,
                                               timeout=5)
         ping_output = ping_output.decode('utf-8')
         delay_values = re.findall(r'time=(\d+\.\d+) ms', ping_output)
+
+        packet_loss_match = re.search(r'(\d+)% packet loss', ping_output)
+        if packet_loss_match:
+            packet_loss = int(packet_loss_match.group(1))
+        else:
+            packet_loss = count  # Assume all packets are lost in case of a timeout
+
         if delay_values:
             delay = float(delay_values[0]) / 1000  # Convert to seconds
             jitter = statistics.pstdev(map(float, delay_values)) / 1000  # Convert to seconds
-            return delay, jitter
+            return delay, jitter, packet_loss
         else:
-            return None, None
+            return None, None, packet_loss
     except (subprocess.CalledProcessError, subprocess.TimeoutExpired):
-        return None, None
+        return None, None, count  # Assume all packets are lost in case of an error or timeout
 
 
-def qos():
+def calculate_qos():
+    f = open("network_log1.har")
+    har_json = f.read()
+    har_dict = json.loads(har_json)
     page = HarPage(har_data=har_dict, page_id="aparat.ir/")
     video_requests = page.filter_entries(content_type='video', status_code="2.*")
     # print(dict(video_requests[0]))
@@ -58,18 +66,29 @@ def qos():
     # Calculate avg bitrate
     total_size = sum(entry['response']['bodySize'] + entry['response']['headersSize'] for entry in real_video_requests)
     avg_bitrate = float(total_size) * 8 / float(total_duration) / 10 ** 6  # IN Mbps
-    delay, jitter = get_delay_jitter(host=real_video_requests[0]['serverIPAddress'], count=3)
+    delay, jitter, packet_loss = get_main_parameters(host=real_video_requests[0]['serverIPAddress'], count=3)
     print(
-        f" startup_time:{round(startup_time, 2)} secs,"
-        f" bufferring_time:{round(buffering_time, 2)} secs,"
-        f" total_duration:{round(total_duration, 2)} secs,"
-        f" buffering_ratio:{round(buffering_ratio, 2)},"
-        f" avg_rebuffering_time:{round(avg_rebuffering_time, 2)} secs,"
-        f" total_size:{round(total_size / 10 ** 6, 2)} Mbits,"
-        f" avg_bitrate:{round(avg_bitrate, 2)} Mbps,"
-        f" delay:{round(delay, 4) if delay else -1} seconds,"
-        f" jitter:{round(jitter, 4) if jitter else -1} seconds"
+        f" startup_time:{round(startup_time, 2)} secs,\n"
+        f" bufferring_time:{round(buffering_time, 2)} secs,\n"
+        f" total_duration:{round(total_duration, 2)} secs,\n"
+        f" buffering_ratio:{round(buffering_ratio, 2)},\n"
+        f" avg_rebuffering_time:{round(avg_rebuffering_time, 2)} secs,\n"
+        f" total_size:{round(total_size / 10 ** 6, 2)} Mbits,\n"
+        f" avg_bitrate:{round(avg_bitrate, 2)} Mbps,\n"
+        f" delay:{round(delay, 4) if delay else -1} seconds,\n"
+        f" jitter:{round(jitter, 4) if jitter else -1} seconds,\n"
+        f" packet_loss:{round(packet_loss, 2)}%"
     )
 
-
-qos()
+    return {
+        "startup_time": round(startup_time, 2),
+        "buffering_time": round(buffering_time, 2),
+        "total_duration": round(total_duration, 2),
+        "buffering_ratio":round(buffering_ratio, 2),
+        "avg_rebuffering_time": round(avg_rebuffering_time,2),
+        "total_size": round(total_size, 2),
+        "avg_bitrate": round(avg_bitrate, 2),
+        "delay": round(delay, 2) if delay else -1,
+        "jitter": round(jitter, 2) if jitter else -1,
+        "packet_loss": round(jitter, 2),
+    }
