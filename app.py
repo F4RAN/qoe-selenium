@@ -23,7 +23,7 @@ def initialize():
     co.add_argument('--ignore-ssl-errors=yes')
     co.add_argument('--ignore-certificate-errors')
     co.add_argument('--proxy-bypass-list=aparat.com"')
-    # co.add_argument('--headless')
+    co.add_argument('--headless')
     co.add_argument('--mute-audio')
     co.add_argument('--disable-gpu')
     co.add_argument('--proxy-server={host}:{port}'.format(host='localhost', port=proxy.port))
