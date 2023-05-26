@@ -77,7 +77,7 @@ reportlab==3.6.9
 requests==2.28.2
 scholarly==1.7.0
 SciPy==1.10.1
-selenium==4.8.3
+selenium~=4.2.0
 six==1.16.0
 slugify==0.0.1
 sniffio==1.2.0
@@ -104,3 +104,6 @@ wrapt==1.14.1
 wheel==0.40.0
 wsproto==1.1.0
 zipp==3.8.0
+
+setuptools~=57.0.0
+haralyzer~=2.2.0

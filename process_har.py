@@ -1,23 +1,21 @@
 import json
+import os
 import re
 import urllib.request
 from datetime import datetime
+from time import sleep
 
+from calculate_parameters import calculate_qos
 from test import convert_ts_to_mp4, calculate_mos
 
-# har_file_path = "network_log1.har"
-# with open(har_file_path, "r", encoding="utf-8") as f:
-#     logs = json.loads(f.read())
-
-# Store the network logs from 'entries' key and
-# iterate them
-# network_logs = logs['log']['entries']
-
 downloaded_files = []
-
 all_results = []
 
-def calculate(urls):
+
+
+
+def calculate(urls, test_model):
+    print("1")
     converted_to_mp4 = []
     for url in urls:
         print(url)
@@ -25,26 +23,45 @@ def calculate(urls):
         urllib.request.urlretrieve(url, f"./libs/ts_files/{file_name}.ts")
         convert_ts_to_mp4(file_name)
         converted_to_mp4.append(file_name)
-
+    print("2")
+    qos = calculate_qos()
+    print("3")
     mos = calculate_mos(converted_to_mp4)
+    test_model.set_mos(mos)
+    test_model.set_qos(qos)
+
+    # Exit Point
+
     print("=-=-=-=-=-=-=-=- MOS Calculation Completed =-=-=-=-=-=-=-=-=-")
-    print("Score is:"+ " " + str(mos))
+    print("Score is:" + " " + str(mos))
     print("=-=-=-=-=-=- Process terminated successfully. =-=-=-=-=-=-=-")
 
-def process_har(har):
+    # DB Jobs
+    test_model.create_db_record()
+    test_model.insert_db_record()
+    test_model.drop_db_connection()
+
+    print("Data Collection Success.")
+    print("Go to the next process.")
+    print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+
+
+def process_har(har, test_model):
     urls = []
+    test_model.extract_har_parameters(har)
     for log in json.loads(har)['log']['entries']:
         try:
             # URL is present inside the following keys
             url = log['request']['url']
-            is_ts = re.search('.*\.ts', url)
-            is_ad = re.search('ad', url)
+
+            is_ts = re.search(r'.*/aparat-video/.*\.ts', url)
             """
             Every .ts file contains 10 seconds of aparat video; 
             we want to pass these files to the ITU-T P1203 Input.
             """
 
-            if is_ts and not is_ad: urls.append(url)
+            if is_ts: urls.append(url)
         except Exception as e:
+            print(e)
             pass
-    calculate(urls)
+    calculate(urls, test_model)
