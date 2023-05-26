@@ -37,6 +37,7 @@ outcome==1.2.0
 packaging==21.3
 pdfkit==1.0.0
 Pillow==9.1.1
+pip==23.1.2
 protobuf==4.21.12
 pybind11==2.10.3
 pycparser==2.21
@@ -100,5 +101,6 @@ typing_extensions==4.2.0
 urllib3==1.26.9
 Werkzeug==2.1.2
 wrapt==1.14.1
+wheel==0.40.0
 wsproto==1.1.0
 zipp==3.8.0
