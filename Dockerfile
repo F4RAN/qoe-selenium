@@ -19,11 +19,10 @@ ENV DISPLAY=:99
 # upgrade pip
 RUN pip install --upgrade pip
 
-# install selenium
-RUN pip install selenium
-
 # install qoe-selenium project
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
+
+ENTRYPOINT python ./app.py
