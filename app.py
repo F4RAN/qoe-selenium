@@ -1,5 +1,7 @@
 import os
 import sys
+import psutil
+
 from time import sleep
 from browsermobproxy import Server
 from selenium import webdriver
@@ -13,8 +15,16 @@ def clear_directory(directory_path):
         elif os.path.isdir(file_path):
             clear_directory(file_path)
 
+def stop_proxy():
+    for proc in psutil.process_iter():
+        try:
+            if "java" in proc.name().lower() and any("browsermob" in cmd.lower() for cmd in proc.cmdline()):
+                proc.terminate()
+                proc.wait()
+        except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.TimeoutExpired):
+            pass
+
 def initialize():
-    clear_directory("./libs/mp4_files")
     os.popen("java -jar ./libs/browsermob-proxy-2.1.4/lib/browsermob-dist-2.1.4.jar --port 9090")
     sleep(10)
     server = Server("./libs/browsermob-proxy-2.1.4/bin/browsermob-proxy", options={'port': 9090})
@@ -39,6 +49,7 @@ def destroy(d, s, p):
     d.quit()
     s.stop()
     os.popen("lsof -i :9090 | awk 'NR==2 {print $2}' | xargs kill")
+    stop_proxy()
 
 
 def process_input(args, d, s, p):
