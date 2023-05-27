@@ -14,6 +14,7 @@ def clear_directory(directory_path):
             clear_directory(file_path)
 
 def initialize():
+    clear_directory("./libs/mp4_files")
     os.popen("java -jar ./libs/browsermob-proxy-2.1.4/lib/browsermob-dist-2.1.4.jar --port 9090")
     sleep(10)
     server = Server("./libs/browsermob-proxy-2.1.4/bin/browsermob-proxy", options={'port': 9090})

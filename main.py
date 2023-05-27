@@ -76,14 +76,6 @@ def crawl(url, driver, server, proxy):
     # advertise= driver.find_element(By.CLASS_NAME, "vast-skip-button")
     if advertise and skip:
         advertise.click()
-    # else:
-    #     try:
-    #         play_button = WebDriverWait(driver, 10).until(
-    #             EC.element_to_be_clickable((By.CLASS_NAME, 'romeo-play-toggle'))
-    #         )
-    #         play_button.click()
-    #     except:
-    #         return False
 
     print('video started')
     start_time = datetime.datetime.now()
@@ -96,14 +88,28 @@ def crawl(url, driver, server, proxy):
             break
         hover(driver)
         try:
-            element = driver.find_element_by_css_selector(".romeo-current")
+            # element = driver.find_element_by_css_selector(".romeo-current")
+            element = WebDriverWait(driver, check_advertise_time).until(
+                EC.presence_of_element_located((By.CLASS_NAME, 'romeo-current'))
+            )
             current = int(element.get_attribute("innerText").split(":")[1])
+            print(current)
             if int(current) >= duration:
-                driver.find_element(By.CLASS_NAME, "romeo-play-toggle").click()
+                hover(driver)
+                player = driver.find_element(By.CLASS_NAME, 'player-wrapper')
+                player.click()
+                # play_button = WebDriverWait(driver, check_advertise_time).until(
+                #     EC.element_to_be_clickable((By.CLASS_NAME, 'romeo-play-toggle'))
+                # )
+
+                # play_button = driver.find_element(By.CLASS_NAME, "romeo-play-toggle")
+                # play_button.click()
+
                 print(
                     f'after {duration + counter if advertise == False else duration + counter} seconds video stopped')
                 break
-        except:
+        except Exception as e:
+            print(e)
             pass
 
         time.sleep(while_sleep)
