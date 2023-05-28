@@ -24,9 +24,17 @@ def calculate(urls, test_model):
         convert_ts_to_mp4(file_name)
         converted_to_mp4.append(file_name)
     print("2")
-    qos = calculate_qos()
+    try:
+        qos = calculate_qos()
+    except Exception as e:
+        print(e)
+        return False
     print("3")
-    mos = calculate_mos(converted_to_mp4)
+    try:
+        mos = calculate_mos(converted_to_mp4)
+    except Exception as e:
+        print(e)
+        return False
     test_model.set_mos(mos)
     test_model.set_qos(qos)
 

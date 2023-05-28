@@ -3,3 +3,4 @@ venv
 test/*
 libs/ts_files/*
 libs/mp4_files/*
+__pycache__
