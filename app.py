@@ -37,6 +37,7 @@ def initialize():
     co.add_argument('--proxy-bypass-list=aparat.com"')
     co.add_argument("--autoplay-policy=no-user-gesture-required");
     co.add_argument('--headless')
+    co.add_argument('--no-sandbox')
     co.add_argument('--mute-audio')
     co.add_argument('--disable-gpu')
     co.add_argument('--proxy-server={host}:{port}'.format(host='localhost', port=proxy.port))

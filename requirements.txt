@@ -103,6 +103,6 @@ wrapt==1.14.1
 wheel==0.40.0
 wsproto==1.1.0
 zipp==3.8.0
-psutil=5.9.5
+psutil
 setuptools~=57.0.0
 haralyzer~=2.2.0
