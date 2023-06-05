@@ -35,10 +35,11 @@ def initialize():
     co.add_argument('--ignore-certificate-errors')
     co.add_argument('--proxy-bypass-list=aparat.com"')
     co.add_argument('--headless')
+    co.add_argument('--no-sandbox')
     co.add_argument('--mute-audio')
     co.add_argument('--disable-gpu')
     co.add_argument('--proxy-server={host}:{port}'.format(host='localhost', port=proxy.port))
-    driver = webdriver.Chrome(executable_path=r'./libs/chromedriver', options=co)
+    driver = webdriver.Chrome(executable_path=r'/usr/bin/chromedriver', options=co)
     proxy.new_har("aparat.ir/")
     return driver, server, proxy
 
