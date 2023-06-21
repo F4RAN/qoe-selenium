@@ -4,6 +4,8 @@ import psutil
 
 from time import sleep
 from browsermobproxy import Server
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
 from main import crawl
 
@@ -38,7 +40,8 @@ def initialize():
     co.add_argument('--mute-audio')
     co.add_argument('--disable-gpu')
     co.add_argument('--proxy-server={host}:{port}'.format(host='localhost', port=proxy.port))
-    driver = webdriver.Chrome(executable_path=r'./libs/chromedriver', options=co)
+    s = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=s, options=co)
     proxy.new_har("aparat.ir/")
     return driver, server, proxy
 
