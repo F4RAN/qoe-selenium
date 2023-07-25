@@ -50,6 +50,7 @@ class DB_OBJECT:
         self.packet_loss = -1
         # From QoE Calculation
         self.mos = 0
+        self.stalling = []
 
     def create_db_record(self):
         self.conn = sqlite3.connect('network_performance.db')
@@ -68,6 +69,7 @@ class DB_OBJECT:
                               connection_time FLOAT,
                               ttfb FLOAT,
                               content_load_time FLOAT,
+                              stalling TEXT,
                               mos FLOAT,
                               initial_load_time FLOAT,
                               page_load_time FLOAT,
@@ -102,6 +104,7 @@ class DB_OBJECT:
             self.ttfb,
             float(self.content_load_time),
             round(float(self.mos), 2),
+            self.stalling,
             self.initial_load_time,
             self.page_load_time,
             self.css_load_time,
@@ -134,7 +137,8 @@ class DB_OBJECT:
                 connection_time, 
                 ttfb, 
                 content_load_time, 
-                mos, 
+                mos,
+                stalling,
                 initial_load_time, 
                 page_load_time, 
                 css_load_time, 
@@ -156,7 +160,7 @@ class DB_OBJECT:
                 jitter,
                 packet_loss             
             ) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
             insert_data
         )
 
@@ -170,6 +174,7 @@ class DB_OBJECT:
         self.throughput = throughput
         self.page_load_time = page_load_time
 
+        
     def extract_browser_parameters(self, timing_data):
         self.dns_resolution_time = timing_data['domainLookupEnd'] - timing_data['domainLookupStart']
         self.connection_time = timing_data['connectEnd'] - timing_data['connectStart']
@@ -179,6 +184,12 @@ class DB_OBJECT:
 
     def set_mos(self, mos):
         self.mos = mos
+
+    def set_stalling(self, stalling):
+        if len(stalling) > 0:
+            self.stalling = " | ".join(str(stall[0]) + " - " + str(stall[1]) for stall in stalling)
+        else:
+            self.stalling = "NULL"
 
     def set_qos(self, qos):
 
@@ -212,3 +223,4 @@ class DB_OBJECT:
         self.audio_load_time = har_page.audio_load_time
         self.video_load_time = har_page.video_load_time
         self.html_load_time = har_page.html_load_time
+    

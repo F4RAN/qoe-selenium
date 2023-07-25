@@ -6,6 +6,7 @@ from datetime import datetime
 from time import sleep
 
 from calculate_parameters import calculate_qos
+from calculate_stalling import calculate_stalling
 from test import convert_ts_to_mp4, calculate_mos
 
 downloaded_files = []
@@ -26,17 +27,29 @@ def calculate(urls, test_model):
     print("2")
     try:
         qos = calculate_qos()
+        test_model.set_qos(qos)
     except Exception as e:
         print(e)
-        return False
+
     print("3")
+    stalling = []
     try:
-        mos = calculate_mos(converted_to_mp4)
+        stalling = calculate_stalling(converted_to_mp4)
+        # stalling = [[0,0], [10.13, 2.206], [32.486, 3.99]] # TEST
+        test_model.set_stalling(stalling)
+    except Exception as e:
+        print(e)
+
+    print("4")
+    try:
+        mos = calculate_mos(converted_to_mp4, stalling)
+        test_model.set_mos(mos)
     except Exception as e:
         print(e)
         return False
-    test_model.set_mos(mos)
-    test_model.set_qos(qos)
+    
+    
+    
 
     # Exit Point
 

@@ -16,7 +16,7 @@ def convert_ts_to_mp4(ts):
     else:
         return False
 
-def calculate_mos(mp4s):
+def calculate_mos(mp4s,stalling):
     print(f"Calculating mos...")
     address = []
     for mp4 in mp4s:
@@ -24,6 +24,8 @@ def calculate_mos(mp4s):
     input_data = extractor.Extractor(address, 3)  # input .ts files, mode
     inp = input_data.extract()
     # Calculate Stalling Here
+    for stall in stalling:
+        inp['I23']['stalling'].append(stall)
     # Use p1203_standalone to calculate parameters and send it to output
     out = p1203_standalone.P1203Standalone(inp)
     res = out.calculate_complete()

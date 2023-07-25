@@ -1,7 +1,8 @@
 import os
 import sys
 import psutil
-
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
 from time import sleep
 from browsermobproxy import Server
 from selenium import webdriver
@@ -30,6 +31,7 @@ def initialize():
     server = Server("./libs/browsermob-proxy-2.1.4/bin/browsermob-proxy", options={'port': 9090})
     server.start()
     proxy = server.create_proxy()
+    ChromeDriverManager().install()
     co = webdriver.ChromeOptions()
     co.add_argument('--ignore-ssl-errors=yes')
     co.add_argument('--ignore-certificate-errors')
@@ -38,7 +40,7 @@ def initialize():
     co.add_argument('--mute-audio')
     co.add_argument('--disable-gpu')
     co.add_argument('--proxy-server={host}:{port}'.format(host='localhost', port=proxy.port))
-    driver = webdriver.Chrome(executable_path=r'./libs/chromedriver', options=co)
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()),options=co)
     proxy.new_har("aparat.ir/")
     return driver, server, proxy
 
@@ -46,6 +48,7 @@ def initialize():
 def destroy(d, s, p):
     print("Cleaning up mp4_files directory...")
     clear_directory("./libs/mp4_files")
+    clear_directory("./libs/ts_files")
     d.quit()
     s.stop()
     os.popen("lsof -i :9090 | awk 'NR==2 {print $2}' | xargs kill")
