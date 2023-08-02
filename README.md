@@ -70,6 +70,68 @@ sudo mv ffmpeg_debug_qp /usr/local/bin
 Now, ffmpeg_debug_qp should be available system-wide. You can verify this by typing ffmpeg_debug_qp in your terminal. If it's correctly installed, you should see the usage instructions for the tool.
 Please note that you need to have make installed on your system to build ffmpeg_debug_qp.
 
+
+## Database fields
+`test_no`: number of test INTEGER,
+
+`url`: url of video that we was testing it TEXT,
+
+`timestamp`: date and time of testing DATETIME,
+
+`delay`: from selenium in ms INTEGER,
+
+`throughput`: from selenium in bps INTEGER,
+
+`connection_time`: from selenium in ms INTEGER,
+
+`ttfb`: time to first byte from selenium in ms INTEGER,
+
+`content_load_time`: from selenium in ms INTEGER,
+
+`mos`: *100 in INTEGER,
+
+`initial_load_time`: from selenium in ms INTEGER,
+
+`page_load_time`: from code ms INTEGER,
+
+`css_load_time`: from selenium in ms INTEGER,
+
+`js_load_time`: from selenium in ms INTEGER,
+
+`video_load_time`: from selenium in ms INTEGER,
+
+`html_load_time`: from selenium in ms INTEGER,
+
+`ttfb`: time to first byte from selenium in ms INTEGER,
+
+`ttfb`: time to first byte from selenium in ms INTEGER,
+
+`video_width`: from selenium INTEGER,
+
+`video_height`: from selenium INTEGER,
+
+`main_video_duration`: video duration without advertise from selenium in ms INTEGER, 
+
+`avg_frame_rate`: *100 from selenium INTEGER,
+
+`startup_time`: from HAR in ms INTEGER,
+
+`buffering_time`: from HAR in ms INTEGER,
+
+`buffering_ratio`: from HAR in percent INTEGER,
+
+`avg_buffering_time`: from HAR in ms INTEGER,
+
+`total_size_with_buffer`: from HAR in bits INTEGER,
+
+`avg_bitrate`: from HAR in kbps INTEGER,
+
+`delay_qos`: from PING in ms INTEGER,
+
+`jitter`: from PING in ms INTEGER,
+
+`packet_loss`: from PING in ms INTEGER,
+
 ## Code changes
 change `valid_video_exts` in `__main__.py`
 
