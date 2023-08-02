@@ -26,7 +26,7 @@ sudo mv ffmpeg_debug_qp /usr/local/bin
 Now, ffmpeg_debug_qp should be available system-wide. You can verify this by typing ffmpeg_debug_qp in your terminal. If it's correctly installed, you should see the usage instructions for the tool.
 Please note that you need to have make installed on your system to build ffmpeg_debug_qp.
 
-then you must install qoe-selenium project:
+then you should install qoe-selenium project:
 ```
 git clone https://github.com/F4RAN/qoe-selenium.git && cd qoe-selenium && pip3 install -r requirements.txt
 ```
