@@ -102,10 +102,6 @@ Please note that you need to have make installed on your system to build ffmpeg_
 
 `html_load_time`: from selenium in ms INTEGER,
 
-`ttfb`: time to first byte from selenium in ms INTEGER,
-
-`ttfb`: time to first byte from selenium in ms INTEGER,
-
 `video_width`: from selenium INTEGER,
 
 `video_height`: from selenium INTEGER,
