@@ -8,8 +8,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 from db import DB_OBJECT
 from process_har import process_har
 
-timeout = 30
-duration = 10
+timeout = 120
+duration = 40
 check_advertise_time = 3
 while_sleep = 1
 

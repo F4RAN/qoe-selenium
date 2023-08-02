@@ -1,17 +1,4 @@
-[INFO  2023-07-25T13:14:33,793 net.lightbody.bmp.proxy.Main] (main) Starting BrowserMob Proxy version 2.1.4 
-[INFO  2023-07-25T13:14:33,820 org.eclipse.jetty.util.log] (main) jetty-7.x.y-SNAPSHOT 
-[INFO  2023-07-25T13:14:33,854 org.eclipse.jetty.util.log] (main) started o.e.j.s.ServletContextHandler{/,null} 
-[WARN  2023-07-25T13:14:34,015 org.eclipse.jetty.util.log] (main) FAILED SelectChannelConnector@0.0.0.0:9090: java.net.BindException: Address already in use 
-[WARN  2023-07-25T13:14:34,015 org.eclipse.jetty.util.log] (main) FAILED org.eclipse.jetty.server.Server@61a91912: java.net.BindException: Address already in use 
-[ERROR 2023-07-25T13:14:34,016 net.lightbody.bmp.proxy.Main] (main) Failed to start Jetty server. Aborting. java.net.BindException: Address already in use
-	at sun.nio.ch.Net.bind0(Native Method) ~[?:?]
-	at sun.nio.ch.Net.bind(Net.java:455) ~[?:?]
-	at sun.nio.ch.Net.bind(Net.java:447) ~[?:?]
-	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:227) ~[?:?]
-	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.jav[INFO  2023-07-25T13:15:55,698 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (LittleProxy-JVM-shutdown-hook) Shutting down proxy server immediately (non-graceful) 
-[INFO  2023-07-25T13:15:55,704 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (LittleProxy-JVM-shutdown-hook) Closing all channels (non-graceful) 
-[INFO  2023-07-25T13:15:55,710 org.littleshoot.proxy.impl.ServerGroup] (LittleProxy-JVM-shutdown-hook) Shutting down server group event loops (non-graceful) 
-[INFO  2023-07-25T13:15:55,716 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (LittleProxy-JVM-shutdown-hook) Done shutting down proxy server 
-nt.AbstractLifeCycle.start(AbstractLifeCycle.java:55) ~[browsermob-dist-2.1.4.jar:?]
-	at net.lightbody.bmp.proxy.Main.main(Main.java:64) [browsermob-dist-2.1.4.jar:?]
-
+[INFO  2023-08-02T20:23:28,704 net.lightbody.bmp.proxy.Main] (main) Starting BrowserMob Proxy version 2.1.4 
+[INFO  2023-08-02T20:23:28,729 org.eclipse.jetty.util.log] (main) jetty-7.x.y-SNAPSHOT 
+[INFO  2023-08-02T20:23:28,762 org.eclipse.jetty.util.log] (main) started o.e.j.s.ServletContextHandler{/,null} 
+[INFO  2023-08-02T20:23:28,940 org.eclipse.jetty.util.log] (main) Started SelectChannelConnector@0.0.0.0:9090 

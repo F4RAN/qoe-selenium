@@ -12,7 +12,6 @@ class DB_OBJECT:
         # From Selenium (Browser)
         self.throughput = 0
         self.page_load_time = 0
-        self.dns_resolution_time = 0
         self.connection_time = 0
         self.ttfb = 0
         self.content_load_time = 0
@@ -32,7 +31,6 @@ class DB_OBJECT:
         self.image_load_time = 0
         self.css_load_time = 0
         self.js_load_time = 0
-        self.audio_load_time = 0
         self.video_load_time = 0
         self.html_load_time = 0
         self.resolution = (0, 0)
@@ -63,68 +61,64 @@ class DB_OBJECT:
                              (test_no INTEGER PRIMARY KEY AUTOINCREMENT,
                               url TEXT,
                               timestamp DATETIME,
-                              delay FLOAT,
-                              throughput FLOAT,
-                              dns_resolution_time FLOAT,
-                              connection_time FLOAT,
-                              ttfb FLOAT,
-                              content_load_time FLOAT,
+                              delay INTEGER,
+                              throughput INTEGER,
+                              connection_time INTEGER,
+                              ttfb INTEGER,
+                              content_load_time INTEGER,
                               stalling TEXT,
-                              mos FLOAT,
-                              initial_load_time FLOAT,
-                              page_load_time FLOAT,
-                              css_load_time FLOAT,
-                              js_load_time FLOAT,
-                              audio_load_time FLOAT,
-                              video_load_time FLOAT,
-                              html_load_time FLOAT,
+                              mos INTEGER,
+                              initial_load_time INTEGER,
+                              page_load_time INTEGER,
+                              css_load_time INTEGER,
+                              js_load_time INTEGER,
+                              video_load_time INTEGER,
+                              html_load_time INTEGER,
                               video_width INTEGER,
                               video_height INTEGER,
-                              main_video_duration FLOAT,
-                              avg_frame_rate FLOAT,
-                              startup_time FLOAT,
-                              buffering_time FLOAT,
-                              buffering_ratio FLOAT,
-                              avg_rebuffering_time FLOAT,
-                              total_size_with_buffer FLOAT,
-                              avg_bitrate FLOAT,
-                              delay_qos FLOAT,
-                              jitter FLOAT,
-                              packet_loss FLOAT        
+                              main_video_duration INTEGER,
+                              avg_frame_rate INTEGER,
+                              startup_time INTEGER,
+                              buffering_time INTEGER,
+                              buffering_ratio INTEGER,
+                              avg_rebuffering_time INTEGER,
+                              total_size_with_buffer INTEGER,
+                              avg_bitrate INTEGER,
+                              delay_qos INTEGER,
+                              jitter INTEGER,
+                              packet_loss INTEGER        
                           )''')
 
     def insert_db_record(self):
         insert_data = (
             self.url,
-            datetime.datetime.now(),
+            datetime.datetime.utcnow(),
             self.delay,
             self.throughput,
-            self.dns_resolution_time,
             self.connection_time,
             self.ttfb,
-            float(self.content_load_time),
-            round(float(self.mos), 2),
+            int(self.content_load_time),
+            int(round(float(self.mos), 2) * 100),
             self.stalling,
-            self.initial_load_time,
-            self.page_load_time,
-            self.css_load_time,
-            self.js_load_time,
-            self.audio_load_time,
-            self.video_load_time,
-            self.html_load_time,
+            int(self.initial_load_time),
+            int(self.page_load_time * 1000),
+            int(self.css_load_time),
+            int(self.js_load_time),
+            int(self.video_load_time),
+            int(self.html_load_time),
             self.resolution[0],
             self.resolution[1],
-            self.main_video_duration,
-            self.avg_frame_rate,
-            self.startup_time,
-            self.buffering_time,
-            self.buffering_ratio,
-            self.avg_rebuffering_time,
-            self.total_size_with_buffer,
-            self.avg_bitrate,
-            self.delay_qos,
-            self.jitter,
-            self.packet_loss
+            int(self.main_video_duration * 1000),
+            int(self.avg_frame_rate * 100),
+            int(self.startup_time * 1000),
+            int(self.buffering_time * 1000),
+            int(self.buffering_ratio * 100),
+            int(self.avg_rebuffering_time * 1000),
+            int(self.total_size_with_buffer),
+            int(self.avg_bitrate * 1000),
+            int(self.delay_qos * 1000),
+            int(self.jitter * 1000),
+            int(self.packet_loss * 100)
         )
 
         self.c.execute(
@@ -133,7 +127,6 @@ class DB_OBJECT:
                 timestamp, 
                 delay, 
                 throughput, 
-                dns_resolution_time, 
                 connection_time, 
                 ttfb, 
                 content_load_time, 
@@ -143,7 +136,6 @@ class DB_OBJECT:
                 page_load_time, 
                 css_load_time, 
                 js_load_time, 
-                audio_load_time, 
                 video_load_time, 
                 html_load_time,
                 video_width,
@@ -160,7 +152,7 @@ class DB_OBJECT:
                 jitter,
                 packet_loss             
             ) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
             insert_data
         )
 
@@ -171,16 +163,15 @@ class DB_OBJECT:
 
     def initial_parameters_calculation(self, url, throughput, page_load_time):
         self.url = url
-        self.throughput = throughput
+        self.throughput = int(throughput)
         self.page_load_time = page_load_time
 
         
     def extract_browser_parameters(self, timing_data):
-        self.dns_resolution_time = timing_data['domainLookupEnd'] - timing_data['domainLookupStart']
-        self.connection_time = timing_data['connectEnd'] - timing_data['connectStart']
-        self.ttfb = timing_data['responseStart'] - timing_data['requestStart']
+        self.connection_time = int(timing_data['connectEnd'] - timing_data['connectStart'])
+        self.ttfb = int(timing_data['responseStart'] - timing_data['requestStart'])
         self.content_load_time = timing_data['responseEnd'] - timing_data['navigationStart']
-        self.delay = self.page_load_time - self.content_load_time
+        self.delay = int(self.content_load_time - self.page_load_time)
 
     def set_mos(self, mos):
         self.mos = mos
@@ -220,7 +211,6 @@ class DB_OBJECT:
         self.initial_load_time = har_page.initial_load_time
         self.css_load_time = har_page.css_load_time
         self.js_load_time = har_page.js_load_time
-        self.audio_load_time = har_page.audio_load_time
         self.video_load_time = har_page.video_load_time
         self.html_load_time = har_page.html_load_time
     

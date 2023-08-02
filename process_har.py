@@ -18,9 +18,14 @@ all_results = []
 def calculate(urls, test_model):
     print("1")
     converted_to_mp4 = []
+    file_names = []
     for url in urls:
+        # quality = url.split(".apt")[0].split("/")[4].split("-")[1]
+        file_name = f"{url.split('.ts')[0].split('/')[-1]}"
+        if file_name in file_names:
+            continue
         print(url)
-        file_name = f"{url.split('.ts')[0].split('/')[-1]}-{datetime.timestamp(datetime.now())}"
+        file_names.append(file_name)
         urllib.request.urlretrieve(url, f"./libs/ts_files/{file_name}.ts")
         convert_ts_to_mp4(file_name)
         converted_to_mp4.append(file_name)

@@ -2,6 +2,7 @@ import os
 import sys
 import psutil
 from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from time import sleep
 from browsermobproxy import Server
@@ -31,16 +32,18 @@ def initialize():
     server = Server("./libs/browsermob-proxy-2.1.4/bin/browsermob-proxy", options={'port': 9090})
     server.start()
     proxy = server.create_proxy()
-    ChromeDriverManager().install()
     co = webdriver.ChromeOptions()
     co.add_argument('--ignore-ssl-errors=yes')
     co.add_argument('--ignore-certificate-errors')
     co.add_argument('--proxy-bypass-list=aparat.com"')
-    co.add_argument('--headless')
+    # co.add_argument('--headless')
     co.add_argument('--mute-audio')
     co.add_argument('--disable-gpu')
     co.add_argument('--proxy-server={host}:{port}'.format(host='localhost', port=proxy.port))
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()),options=co)
+    co.binary_location = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+    # driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()),options=co)
+    service = Service(executable_path='./libs/chromedriver')
+    driver = webdriver.Chrome(service=service,options=co)
     proxy.new_har("aparat.ir/")
     return driver, server, proxy
 
@@ -100,6 +103,8 @@ def process_input(args, d, s, p):
 if __name__ == "__main__":
     try:
         os.system("pkill -f 'java -jar ./libs/browsermob-proxy-2.1.4/lib/browsermob-dist-2.1.4.jar'")
+        clear_directory("./libs/mp4_files")
+        clear_directory("./libs/ts_files")
     except:
         pass
     if sys.argv and len(sys.argv) > 1:
