@@ -1,3 +1,38 @@
+## Installation scenario on Ubuntu
+first you should install git, python3 and ffmpeg:
+```
+sudo apt install git python3 ffmpeg
+```
+then install the required packages using the command below:
+```
+sudo apt-get install libavformat-dev libavdevice-dev libavfilter-dev libswscale-dev
+```
+To export ffmpeg_debug_qp to your PATH first you need to clone the following project:
+```
+git clone https://github.com/slhck/ffmpeg-debug-qp.git
+```
+Then navigate to the cloned directory:
+```
+cd ffmpeg-debug-qp
+```
+build the tool:
+```
+make
+```
+After building, you need to add the tool to your system's PATH.you can move the ffmpeg_debug_qp executable to /usr/local/bin:
+```
+sudo mv ffmpeg_debug_qp /usr/local/bin
+```
+Now, ffmpeg_debug_qp should be available system-wide. You can verify this by typing ffmpeg_debug_qp in your terminal. If it's correctly installed, you should see the usage instructions for the tool.
+Please note that you need to have make installed on your system to build ffmpeg_debug_qp.
+
+then you must install qoe-selenium project:
+```
+git clone https://github.com/F4RAN/qoe-selenium.git && cd qoe-selenium && pip3 install -r requirements.txt
+```
+
+
+
 ## Run App
 Run comma separated links:
 ```bash
@@ -41,34 +76,6 @@ then copy builded file to the with below command:
     sudo cp ./ffmpeg_debug_qp /usr/local/bin/
 
 so now [itu_p1203](https://github.com/itu-p1203/itu-p1203) standalone app can use the `ffmpeg_debug_qp` correctly.
-
-## Installation scenario on Ubuntu
-first you should install ffmpeg:
-```
-sudo apt install ffmpeg
-```
-then install the required packages using the command below:
-```
-sudo apt-get install libavformat-dev libavdevice-dev libavfilter-dev libswscale-dev
-```
-To export ffmpeg_debug_qp to your PATH first you need to clone the following project:
-```
-git clone https://github.com/slhck/ffmpeg-debug-qp.git
-```
-Then navigate to the cloned directory:
-```
-cd ffmpeg-debug-qp
-```
-build the tool:
-```
-make
-```
-After building, you need to add the tool to your system's PATH.you can move the ffmpeg_debug_qp executable to /usr/local/bin:
-```
-sudo mv ffmpeg_debug_qp /usr/local/bin
-```
-Now, ffmpeg_debug_qp should be available system-wide. You can verify this by typing ffmpeg_debug_qp in your terminal. If it's correctly installed, you should see the usage instructions for the tool.
-Please note that you need to have make installed on your system to build ffmpeg_debug_qp.
 
 
 ## Database fields
