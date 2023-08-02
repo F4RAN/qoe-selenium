@@ -31,7 +31,39 @@ then you should install qoe-selenium project:
 git clone https://github.com/F4RAN/qoe-selenium.git && cd qoe-selenium && pip3 install -r requirements.txt
 ```
 
+## Installation scenario on macOS
+this implementation just works on ffmpeg version 4
+then you must install below packages:
+```
+brew install ffmpeg@4 pkg-config python3 git
+```
 
+after communication with main developer of [ffmpeg-debug-qp](https://github.com/slhck/ffmpeg-debug-qp/issues/38),
+i found out we must to use this command after clone `ffmpeg-debug-qp` package 
+
+```
+export PKG_CONFIG_PATH="/opt/homebrew/opt/ffmpeg@4/lib/pkgconfig
+```
+
+and use `make` command to compile it root folder of `ffmpeg-debug-qp`
+```
+git clone https://github.com/slhck/ffmpeg-debug-qp.git && cd ffmpeg-debug-qp && make
+```
+
+
+then copy builded file to the with below command:
+
+```
+sudo cp ./ffmpeg_debug_qp /usr/local/bin/
+```
+
+
+so now [itu_p1203](https://github.com/itu-p1203/itu-p1203) standalone app can use the `ffmpeg_debug_qp` correctly.
+
+then you should install qoe-selenium project:
+```
+git clone https://github.com/F4RAN/qoe-selenium.git && cd qoe-selenium && pip3 install -r requirements.txt
+```
 
 ## Run App
 Run comma separated links:
@@ -57,25 +89,6 @@ file structure: aparat_file.txt:
 
 You must use compatible chromedriver of your os, you can use below link to download suitable version of chrome depended on your Chrome version:
 https://chromedriver.chromium.org/downloads
-
-
-## Installation scenario on macOS
-this implementation just works on ffmpeg version 4
-
-    brew install ffmpeg@4 pkg-config
-
-after communication with main developer of [ffmpeg-debug-qp](https://github.com/slhck/ffmpeg-debug-qp/issues/38),
-i found out i must use this command after clone `ffmpeg-debug-qp` package 
-
-
-    export PKG_CONFIG_PATH="/opt/homebrew/opt/ffmpeg@4/lib/pkgconfig
-and use `make` command to compile it root folder of `ffmpeg-debug-qp`
-
-then copy builded file to the with below command:
-    
-    sudo cp ./ffmpeg_debug_qp /usr/local/bin/
-
-so now [itu_p1203](https://github.com/itu-p1203/itu-p1203) standalone app can use the `ffmpeg_debug_qp` correctly.
 
 
 ## Database fields
