@@ -133,7 +133,7 @@ so now [itu_p1203](https://github.com/itu-p1203/itu-p1203) standalone app can us
 
 `jitter`: from PING in ms INTEGER,
 
-`packet_loss`: from PING in ms INTEGER,
+`packet_loss`: from PING in percent INTEGER,
 
 ## Code changes
 change `valid_video_exts` in `__main__.py`
