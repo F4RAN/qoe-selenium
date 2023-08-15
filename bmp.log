@@ -1,4 +1,36 @@
-[INFO  2023-08-02T20:23:28,704 net.lightbody.bmp.proxy.Main] (main) Starting BrowserMob Proxy version 2.1.4 
-[INFO  2023-08-02T20:23:28,729 org.eclipse.jetty.util.log] (main) jetty-7.x.y-SNAPSHOT 
-[INFO  2023-08-02T20:23:28,762 org.eclipse.jetty.util.log] (main) started o.e.j.s.ServletContextHandler{/,null} 
-[INFO  2023-08-02T20:23:28,940 org.eclipse.jetty.util.log] (main) Started SelectChannelConnector@0.0.0.0:9090 
+[INFO  2023-08-15T10:22:16,113 net.lightbody.bmp.proxy.Main] (main) Starting BrowserMob Proxy version 2.1.4 
+[INFO  2023-08-15T10:22:16,172 org.eclipse.jetty.util.log] (main) jetty-7.x.y-SNAPSHOT 
+[INFO  2023-08-15T10:22:16,224 org.eclipse.jetty.util.log] (main) started o.e.j.s.ServletContextHandler{/,null} 
+[WARN  2023-08-15T10:22:16,456 org.eclipse.jetty.util.log] (main) FAILED SelectChannelConnector@0.0.0.0:9090: java.net.BindException: Address already in use 
+[WARN  2023-08-15T10:22:16,456 org.eclipse.jetty.util.log] (main) FAILED org.eclipse.jetty.server.Server@61a91912: java.net.BindException: Address already in use 
+[ERROR 2023-08-15T10:22:16,457 net.lightbody.bmp.proxy.Main] (main) Failed to start Jetty server. Aborting. java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method) ~[?:?]
+	at sun.nio.ch.Net.bin[INFO  2023-08-15T10:22:42,403 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-0) (HANDSHAKING) [id: 0x9a240bb1, L:0.0.0.0/0.0.0.0:50786]: Connection to upstream server failed javax.net.ssl.SSLException: handshake timed out
+	at io.netty.handler.ssl.SslHandler.handshake(...)(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
+
+[INFO  2023-08-15T10:23:20,663 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-6) (HANDSHAKING) [id: 0x4584056d, L:0.0.0.0/0.0.0.0:51045]: Connection to upstream server failed javax.net.ssl.SSLException: handshake timed out
+	at io.netty.handler.ssl.SslHandler.handshake(...)(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
+
+[INFO  2023-08-15T10:23:31,538 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-6) (HANDSHAKING) [id: 0x0a510222, L:0.0.0.0/0.0.0.0:51138]: Connection to upstream server failed javax.net.ssl.SSLException: handshake timed out
+	at io.netty.handler.ssl.SslHandler.handshake(...)(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
+
+[INFO  2023-08-15T10:24:25,227 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-6) (HANDSHAKING) [id: 0xa63722f2, L:0.0.0.0/0.0.0.0:51450]: Connection to upstream server failed javax.net.ssl.SSLException: handshake timed out
+	at io.netty.handler.ssl.SslHandler.handshake(...)(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
+
+[INFO  2023-08-15T10:24:25,228 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-4) (HANDSHAKING) [id: 0xf533945d, L:0.0.0.0/0.0.0.0:51446]: Connection to upstream server failed javax.net.ssl.SSLException: handshake timed out
+	at io.netty.handler.ssl.SslHandler.handshake(...)(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
+
+[INFO  2023-08-15T10:24:25,228 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-5) (HANDSHAKING) [id: 0x323a02fb, L:0.0.0.0/0.0.0.0:51449]: Connection to upstream server failed javax.net.ssl.SSLException: handshake timed out
+	at io.netty.handler.ssl.SslHandler.handshake(...)(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
+
+[INFO  2023-08-15T10:25:05,997 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-6) (HANDSHAKING) [id: 0xc72d6e64, L:0.0.0.0/0.0.0.0:51652]: Connection to upstream server failed javax.net.ssl.SSLException: handshake timed out
+	at io.netty.handler.ssl.SslHandler.handshake(...)(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
+
+[INFO  2023-08-15T10:25:17,016 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-0) (NEGOTIATING_CONNECT) [id: 0x09600196, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:51722]: An IOException occurred on ClientToProxyConnection: Connection reset by peer 
+[INFO  2023-08-15T10:25:17,026 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-2) (HANDSHAKING) [id: 0xfa43491e, L:0.0.0.0/0.0.0.0:51733]: Connection to upstream server failed java.nio.channels.ClosedChannelException: null
+	at io.netty.handler.ssl.SslHandler.channelInactive(...)(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
+
+[INFO  2023-08-15T10:27:14,056 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (LittleProxy-JVM-shutdown-hook) Shutting down proxy server immediately (non-graceful) 
+[INFO  2023-08-15T10:27:14,056 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (LittleProxy-JVM-shutdown-hook) Closing all channels (non-graceful) 
+[INFO  2023-08-15T10:27:14,062 org.littleshoot.proxy.impl.ServerGroup] (LittleProxy-JVM-shutdown-hook) Shutting down server group event loops (non-graceful) 
+[INFO  2023-08-15T10:27:14,065 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (LittleProxy-JVM-shutdown-hook) Done shutting down proxy server 

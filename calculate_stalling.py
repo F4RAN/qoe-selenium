@@ -1,3 +1,6 @@
+######## DEPRECATED ########
+
+
 from moviepy.editor import VideoFileClip
 import json
 from haralyzer import HarPage
@@ -29,7 +32,7 @@ def calculate_stalling(mp4_files):
     segments = []
     for mp4 in mp4_files:
         segments.append({'path': f'./libs/mp4_files/{mp4}.mp4', 'duration': get_video_duration(f'./libs/mp4_files/{mp4}.mp4')})
-    print(segments)
+    # print(segments)
     f = open("network_log1.har")
     har_json = f.read()
     har_dict = json.loads(har_json)
@@ -57,7 +60,7 @@ def calculate_stalling(mp4_files):
         file_name = f"{video['request']['url'].split('.ts')[0].split('/')[-1]}"
         if file_name in files:
             continue
-        print(file_name, index, counter)
+        # print(file_name, index, counter)
         files.append(file_name)
         # Sum of durations to previous segments
         if index != 0:
@@ -71,13 +74,13 @@ def calculate_stalling(mp4_files):
         # print("start_date_time",index,start_date_time)
         res_date_time = start_date_time + timedelta(milliseconds=wait_time)
         # print("res_date_time",index,res_date_time)
-        print('here1')
         if res_date_time > sum_of_durations:
             stalling_time = res_date_time - sum_of_durations
             if stalling_time > timedelta(seconds=threshold):
                 print("Stalling Detected")
                 start = sum_of_durations - first_res_date_time
                 duration = stalling_time
+                print(start.total_seconds(), duration.total_seconds())
                 # First element of stalling array can not be anything other than [0,duration] then when we dont want this we must add [0,0] to the first element
                 if first:
                     stalling.append([0,0])

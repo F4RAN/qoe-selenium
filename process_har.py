@@ -15,7 +15,7 @@ all_results = []
 
 
 
-def calculate(urls, test_model):
+def calculate(urls, test_model, stalling):
     print("1")
     converted_to_mp4 = []
     file_names = []
@@ -37,10 +37,10 @@ def calculate(urls, test_model):
         print(e)
 
     print("3")
-    stalling = []
+    # stalling = []
     try:
-        stalling = calculate_stalling(converted_to_mp4)
-        # stalling = [[0,0], [10.13, 2.206], [32.486, 3.99]] # TEST
+    #     stalling = calculate_stalling(converted_to_mp4)
+    #     # stalling = [[0,0], [10.13, 2.206], [32.486, 3.99]] # TEST
         test_model.set_stalling(stalling)
     except Exception as e:
         print(e)
@@ -72,7 +72,7 @@ def calculate(urls, test_model):
     print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
 
 
-def process_har(har, test_model):
+def process_har(har, test_model, stalling):
     urls = []
     test_model.extract_har_parameters(har)
     for log in json.loads(har)['log']['entries']:
@@ -90,4 +90,4 @@ def process_har(har, test_model):
         except Exception as e:
             print(e)
             pass
-    calculate(urls, test_model)
+    calculate(urls, test_model, stalling)
