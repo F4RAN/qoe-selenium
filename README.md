@@ -1,3 +1,65 @@
+## Installation/Run scenario on Docker
+At first you must to create shared folder with 2 files: 1- aparat_file.txt, 2- network_performance.db
+
+in Unix-based systems:
+```
+mkdir /path/to/shared/ && cd /path/to/shared/
+touch aparat_file.txt
+touch network_performance.db
+```
+in Windows systems:
+
+```
+mkdir C:\shared 
+cd C:\shared
+type nul > aparat_file.txt
+type nul > network_performance.db
+```
+
+edit aparat_file.txt and put an Aparat video link in the each line
+
+then run the project with the bottom line:
+```
+docker run -v $(pwd)/aparat_file.txt:/usr/src/app/aparat_file.txt -v $(pwd)/network_performance.db:/usr/src/app/network_performance.db --rm -it qoe-selenium
+```
+
+for windows systems:
+```
+docker run -v C:\shared\aparat_file.txt:/usr/src/app/aparat_file.txt -v C:\shared\network_performance.db:/usr/src/app/network_performance.db --rm -it qoe-selenium
+
+```
+network_performance.db update live when application is running.
+
+## Build from Dockerfile
+Clone the project:
+```
+git clone https://github.com/F4RAN/qoe-selenium.git && cd qoe-selenium
+```
+then use this command for Linux 64-bit ARM platforms:
+```
+docker buildx build --platform=linux/arm64  -t qoe-selenium .
+```
+
+
+build for other platforms:
+
+- linux/amd64 - Linux 64-bit x86
+- linux/arm64 - Linux 64-bit ARM
+- linux/arm/v7 - Linux ARMv7 32-bit
+- linux/arm/v6 - Linux ARMv6
+- linux/386 - Linux 32-bit x86
+- linux/ppc64le - Linux PowerPC 64-bit
+- linux/s390x - Linux IBM Z
+- windows/amd64 - Windows 64-bit x86
+- windows/arm64 - Windows ARM64
+- darwin/amd64 - macOS x86 64-bit
+- darwin/arm64 - macOS ARM64 Apple Silicon
+
+
+## Installation scenario on Docker ( Windows )
+Here is how you can install and run the project on Docker for Windows:
+
+
 ## Installation scenario on Ubuntu
 first you should install git, python3 and ffmpeg:
 ```
