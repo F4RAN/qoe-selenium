@@ -20,12 +20,12 @@ edit aparat_file.txt and put an Aparat video link in the each line
 
 then run the project with the bottom line:
 ```
-docker run -v $(pwd)/aparat_file.txt:/usr/src/app/aparat_file.txt -v $(pwd)/network_performance.db:/usr/src/app/network_performance.db --rm -it qoe-selenium
+docker run -v $(pwd)/aparat_file.txt:/usr/src/app/aparat_file.txt -v $(pwd)/network_performance.db:/usr/src/app/network_performance.db --rm -it f4ran/qoe-selenium
 ```
 
 for windows systems:
 ```
-docker run -v C:\shared\aparat_file.txt:/usr/src/app/aparat_file.txt -v C:\shared\network_performance.db:/usr/src/app/network_performance.db --rm -it qoe-selenium
+docker run -v C:\shared\aparat_file.txt:/usr/src/app/aparat_file.txt -v C:\shared\network_performance.db:/usr/src/app/network_performance.db --rm -it f4ran/qoe-selenium
 
 ```
 network_performance.db update live when application is running.
