@@ -36,14 +36,21 @@ def initialize():
     co.add_argument('--ignore-ssl-errors=yes')
     co.add_argument('--ignore-certificate-errors')
     co.add_argument('--proxy-bypass-list=aparat.com"')
-    # co.add_argument('--headless')
+    co.add_argument('--headless')
+    co.add_argument('--no-sandbox')
     co.add_argument('--mute-audio')
-    co.add_argument('--disable-gpu')
+    # co.add_argument('--disable-gpu')
     co.add_argument('--proxy-server={host}:{port}'.format(host='localhost', port=proxy.port))
-    co.binary_location = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+    # co.binary_location = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
     # driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()),options=co)
-    service = Service(executable_path='./libs/chromedriver')
+    # service = Service(executable_path='./libs/chromedriver')
+    service = Service(executable_path='/usr/bin/chromedriver')
     driver = webdriver.Chrome(service=service,options=co)
+    # driver = webdriver.Chrome(options=co)
+    # driver = webdriver.Remote(
+    #     command_executor='http://localhost:4444/wd/hub',
+    #     options=co
+    # )
     proxy.new_har("aparat.ir/")
     return driver, server, proxy
 

@@ -1,7 +1,8 @@
 browsermob_proxy==0.8.0
 haralyzer==2.4.0
+moviepy==1.0.3
 numpy==1.24.2
 psutil==5.9.5
-selenium==4.10.0
+selenium==4.11.2
 setuptools==65.6.3
-webdriver-manager==4.0.0
+webdriver_manager==4.0.0
