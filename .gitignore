@@ -1,4 +1,5 @@
 venv
 test/*
-
+libs/ts_files/*.ts
+libs/mp4_files/*.mp4
 __pycache__
