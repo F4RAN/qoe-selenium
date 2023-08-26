@@ -63,7 +63,10 @@ WORKDIR /tmp
 RUN wget https://ffmpeg.org/releases/ffmpeg-4.2.2.tar.gz
 RUN tar -xzf ffmpeg-4.2.2.tar.gz
 WORKDIR /tmp/ffmpeg-4.2.2
-RUN ./configure && make && make install
+RUN apt-get install -y nasm yasm libx264-dev libx265-dev libnuma-dev libvpx-dev libopus-dev
+RUN ./configure --disable-asm
+RUN make
+RUN make install
 RUN mv ./ffmpeg /usr/bin/ffmpeg
 RUN mv ./ffprobe /usr/bin/ffprobe
 WORKDIR /tmp
