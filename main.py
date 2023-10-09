@@ -68,7 +68,9 @@ def crawl(url, driver, server, proxy):
                         play.click()
                     pass
         except:
+            print(f"{c} - problem with advertisement waint for timeout")
             pass
+
         time.sleep(0.5)
         c += 1
 
