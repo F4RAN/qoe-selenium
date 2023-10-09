@@ -75,7 +75,12 @@ def process_input(args, d, s, p):
         for i in input_urls:
             if "https://www.aparat.com/" in i:
                 cleaned_url = i.replace(" ", "").replace("\n", "").strip()
-                res = crawl(cleaned_url, d, s, p)
+                try:
+                    res = crawl(cleaned_url, d, s, p)
+                except:
+                    print("error")
+                    destroy(d, s, p)
+                    continue
                 destroy(d, s, p)
                 if i != input_urls[len(input_urls)-1]:
                     d, s, p = initialize()
@@ -91,7 +96,12 @@ def process_input(args, d, s, p):
             for i in links:
                 if "https://www.aparat.com/" in i:
                     cleaned_url = i.replace(" ", "").replace("\n", "").strip()
-                    res = crawl(cleaned_url, d, s, p)
+                    try:
+                        res = crawl(cleaned_url, d, s, p)
+                    except:
+                        print("error")
+                        destroy(d, s, p)
+                        continue
                     destroy(d, s, p)
                     if i != links[len(links) - 1]:
                         d, s, p = initialize()

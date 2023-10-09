@@ -70,7 +70,7 @@ def crawl(url, driver, server, proxy):
         except:
             print(f"{c} - problem with advertisement waint for timeout")
             pass
-
+        driver.save_screenshot('tst.png')
         time.sleep(0.5)
         c += 1
 
