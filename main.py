@@ -47,7 +47,9 @@ def crawl(url, driver, server, proxy):
     # except:
     #     return False
     advertise_mode = True
+    c = 0
     while True:
+        if c == timeout: return False
         try:
             controls = driver.find_element(By.CLASS_NAME, "romeo-controls")
             classess = controls.get_attribute("class").split()
@@ -68,6 +70,7 @@ def crawl(url, driver, server, proxy):
         except:
             pass
         time.sleep(0.5)
+        c += 1
 
 
 

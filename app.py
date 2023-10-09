@@ -46,6 +46,7 @@ def initialize():
     # service = Service(executable_path='./libs/chromedriver')
     service = Service(executable_path='/usr/bin/chromedriver')
     driver = webdriver.Chrome(service=service,options=co)
+    driver.set_window_size(1920, 1080)
     # driver = webdriver.Chrome(options=co)
     # driver = webdriver.Remote(
     #     command_executor='http://localhost:4444/wd/hub',

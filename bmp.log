@@ -1,16 +1,17 @@
-[INFO  2023-08-21T18:22:43,177 net.lightbody.bmp.proxy.Main] (main) Starting BrowserMob Proxy version 2.1.4 
-[INFO  2023-08-21T18:22:43,205 org.eclipse.jetty.util.log] (main) jetty-7.x.y-SNAPSHOT 
-[INFO  2023-08-21T18:22:43,244 org.eclipse.jetty.util.log] (main) started o.e.j.s.ServletContextHandler{/,null} 
-[WARN  2023-08-21T18:22:43,424 org.eclipse.jetty.util.log] (main) FAILED SelectChannelConnector@0.0.0.0:9090: java.net.BindException: Address already in use 
-[WARN  2023-08-21T18:22:43,425 org.eclipse.jetty.util.log] (main) FAILED org.eclipse.jetty.server.Server@61a91912: java.net.BindException: Address already in use 
-[ERROR 2023-08-21T18:22:43,425 net.lightbody.bmp.proxy.Main] (main) Failed to start Jetty server. Aborting. java.net.BindException: Address already in use
+[INFO  2023-10-09T10:43:19,220 net.lightbody.bmp.proxy.Main] (main) Starting BrowserMob Proxy version 2.1.4 
+[INFO  2023-10-09T10:43:19,246 org.eclipse.jetty.util.log] (main) jetty-7.x.y-SNAPSHOT 
+[INFO  2023-10-09T10:43:19,284 org.eclipse.jetty.util.log] (main) started o.e.j.s.ServletContextHandler{/,null} 
+[WARN  2023-10-09T10:43:19,479 org.eclipse.jetty.util.log] (main) FAILED SelectChannelConnector@0.0.0.0:9090: java.net.BindException: Address already in use 
+[WARN  2023-10-09T10:43:19,480 org.eclipse.jetty.util.log] (main) FAILED org.eclipse.jetty.server.Server@61a91912: java.net.BindException: Address already in use 
+[ERROR 2023-10-09T10:43:19,480 net.lightbody.bmp.proxy.Main] (main) Failed to start Jetty server. Aborting. java.net.BindException: Address already in use
 	at sun.nio.ch.Net.bind0(Native Method) ~[?:?]
 	at sun.nio.ch.Net.bind(Net.java:455) ~[?:?]
 	at sun.nio.ch.Net.bind(Net.java:447) ~[?:?]
 	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:227) ~[?:?]
-	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.jav[INFO  2023-08-21T18:24:51,480 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (LittleProxy-JVM-shutdown-hook) Shutting down proxy server immediately (non-graceful) 
-[INFO  2023-08-21T18:24:51,484 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (LittleProxy-JVM-shutdown-hook) Closing all channels (non-graceful) 
-ctChannelConnector.java:240) ~[browsermob-dist-2.1.4.jar:?]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:80) ~[?:?]
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.open(SelectChannelConnector.java:162) ~[browsermob-dist-2.1.4.jar:?]
+	at org.eclipse.jetty.server.AbstractConnector.doStart(AbstractConnector.java:356) ~[browsermob-dist-2.1.4.jar:?]
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.doStart(SelectChannelConnector.java:240) ~[browsermob-dist-2.1.4.jar:?]
 	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:55) ~[browsermob-dist-2.1.4.jar:?]
 	at org.eclipse.jetty.server.Server.doStart(Server.java:269) ~[browsermob-dist-2.1.4.jar:?]
 	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:55) ~[browsermob-dist-2.1.4.jar:?]
