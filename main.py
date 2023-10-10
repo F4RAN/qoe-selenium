@@ -68,7 +68,7 @@ def crawl(url, driver, server, proxy):
                         play.click()
                     pass
         except:
-            print(f"{c} - problem with advertisement waint for timeout")
+            print(f"{c} - problem with advertisement wait for timeout")
             pass
         driver.save_screenshot('tst.png')
         time.sleep(0.5)
@@ -175,6 +175,7 @@ def crawl(url, driver, server, proxy):
                 pass
             # print(e)
             print("Can not get video Timer, Please wait...")
+            driver.save_screenshot('tst.png')
             pass
 
         time.sleep(while_sleep)

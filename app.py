@@ -41,12 +41,20 @@ def initialize():
     co.add_argument('--mute-audio')
     # co.add_argument('--disable-gpu')
     co.add_argument('--proxy-server={host}:{port}'.format(host='localhost', port=proxy.port))
-    # co.binary_location = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+    co.binary_location = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
     # driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()),options=co)
+    # ## Local
     # service = Service(executable_path='./libs/chromedriver')
+    # driver = webdriver.Chrome(service=service, options=co)
+    # driver.set_window_size(1920, 1080)
+    # ###
+    ## Docker
     service = Service(executable_path='/usr/bin/chromedriver')
     driver = webdriver.Chrome(service=service,options=co)
     driver.set_window_size(1920, 1080)
+    ###
+
+
     # driver = webdriver.Chrome(options=co)
     # driver = webdriver.Remote(
     #     command_executor='http://localhost:4444/wd/hub',
@@ -77,8 +85,8 @@ def process_input(args, d, s, p):
                 cleaned_url = i.replace(" ", "").replace("\n", "").strip()
                 try:
                     res = crawl(cleaned_url, d, s, p)
-                except:
-                    print("error")
+                except Exception as e:
+                    print("error ",e)
                     destroy(d, s, p)
                     continue
                 destroy(d, s, p)
@@ -101,6 +109,8 @@ def process_input(args, d, s, p):
                     except:
                         print("error")
                         destroy(d, s, p)
+                        if i != links[len(links) - 1]:
+                            d, s, p = initialize()
                         continue
                     destroy(d, s, p)
                     if i != links[len(links) - 1]:
