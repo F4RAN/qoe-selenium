@@ -33,7 +33,7 @@ network_performance.db update live when application is running.
 ## Build from Dockerfile
 Clone the project:
 ```
-git clone https://github.com/F4RAN/qoe-selenium.git && cd qoe-selenium
+git clone https://github.com/F4RAN/qoe-selenium.git && cd qoe-selenium && mkdir libs/mp4_files && mkdir libs/ts_files
 ```
 then use this command for Linux 64-bit ARM platforms:
 ```
@@ -90,7 +90,7 @@ Please note that you need to have make installed on your system to build ffmpeg_
 
 then you should install qoe-selenium project:
 ```
-git clone https://github.com/F4RAN/qoe-selenium.git && cd qoe-selenium && pip3 install -r requirements.txt
+git clone https://github.com/F4RAN/qoe-selenium.git && cd qoe-selenium && mkdir libs/mp4_files && mkdir libs/ts_files && pip3 install -r requirements.txt
 ```
 
 ## Installation scenario on macOS
