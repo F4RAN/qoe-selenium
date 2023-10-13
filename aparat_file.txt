@@ -597,4 +597,8 @@ https://www.aparat.com/v/yqRkV
 https://www.aparat.com/v/jn64a
 https://www.aparat.com/v/HDuAm
 https://www.aparat.com/v/Glrqz
+<<<<<<< HEAD
 https://www.aparat.com/v/DZ93y
+=======
+https://www.aparat.com/v/DZ93y
+>>>>>>> eb6d62f (change delay and jitter round)

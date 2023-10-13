@@ -94,7 +94,7 @@ def calculate_qos():
         "avg_rebuffering_time": round(avg_rebuffering_time, 2),
         "total_size": round(total_size, 2),
         "avg_bitrate": round(avg_bitrate, 2),
-        "delay": round(delay, 2) if delay else -1,
-        "jitter": round(jitter, 2) if jitter else -1,
-        "packet_loss": round(packet_loss, 2) if packet_loss else -1,
+        "delay": round(delay, 4) if delay else -1,
+        "jitter": round(jitter, 4) if jitter else -1,
+        "packet_loss": round(packet_loss, 2),
     }

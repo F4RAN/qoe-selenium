@@ -1,14 +1,14 @@
-[INFO  2023-10-14T02:35:48,886 net.lightbody.bmp.proxy.Main] (main) Starting BrowserMob Proxy version 2.1.4 
-[INFO  2023-10-14T02:35:48,913 org.eclipse.jetty.util.log] (main) jetty-7.x.y-SNAPSHOT 
-[INFO  2023-10-14T02:35:48,950 org.eclipse.jetty.util.log] (main) started o.e.j.s.ServletContextHandler{/,null} 
-[WARN  2023-10-14T02:35:49,138 org.eclipse.jetty.util.log] (main) FAILED SelectChannelConnector@0.0.0.0:9090: java.net.BindException: Address already in use 
-[WARN  2023-10-14T02:35:49,138 org.eclipse.jetty.util.log] (main) FAILED org.eclipse.jetty.server.Server@61a91912: java.net.BindException: Address already in use 
-[ERROR 2023-10-14T02:35:49,139 net.lightbody.bmp.proxy.Main] (main) Failed to start Jetty server. Aborting. java.net.BindException: Address already in use
+[INFO  2023-10-14T03:13:34,264 net.lightbody.bmp.proxy.Main] (main) Starting BrowserMob Proxy version 2.1.4 
+[INFO  2023-10-14T03:13:34,292 org.eclipse.jetty.util.log] (main) jetty-7.x.y-SNAPSHOT 
+[INFO  2023-10-14T03:13:34,344 org.eclipse.jetty.util.log] (main) started o.e.j.s.ServletContextHandler{/,null} 
+[WARN  2023-10-14T03:13:34,548 org.eclipse.jetty.util.log] (main) FAILED SelectChannelConnector@0.0.0.0:9090: java.net.BindException: Address already in use 
+[WARN  2023-10-14T03:13:34,548 org.eclipse.jetty.util.log] (main) FAILED org.eclipse.jetty.server.Server@61a91912: java.net.BindException: Address already in use 
+[ERROR 2023-10-14T03:13:34,549 net.lightbody.bmp.proxy.Main] (main) Failed to start Jetty server. Aborting. java.net.BindException: Address already in use
 	at sun.nio.ch.Net.bind0(Native Method) ~[?:?]
-	at sun.nio.ch.Net.bin[INFO  2023-10-14T02:36:32,321 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ProxyToServerWorker-4) (AWAITING_INITIAL) [id: 0x8b09b9dc, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63642]: Connection to server became saturated, stopping reading 
-[INFO  2023-10-14T02:36:32,325 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ProxyToServerWorker-4) (AWAITING_INITIAL) [id: 0x8b09b9dc, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63642]: All server connections writeable, resuming reading 
-[INFO  2023-10-14T02:37:46,591 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (LittleProxy-JVM-shutdown-hook) Shutting down proxy server immediately (non-graceful) 
-[INFO  2023-10-14T02:37:46,618 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (LittleProxy-JVM-shutdown-hook) Closing all channels (non-graceful) 
-[INFO  2023-10-14T02:37:46,639 org.littleshoot.proxy.impl.ServerGroup] (LittleProxy-JVM-shutdown-hook) Shutting down server group event loops (non-graceful) 
-
+	at sun.nio.ch.Net.bin[INFO  2023-10-14T03:13:49,722 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ProxyToServerWorker-7) (AWAITING_INITIAL) [id: 0x69a512ea, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:51418]: Connection to server became saturated, stopping reading 
+[INFO  2023-10-14T03:13:49,724 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ProxyToServerWorker-7) (AWAITING_INITIAL) [id: 0x69a512ea, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:51418]: All server connections writeable, resuming reading 
+[INFO  2023-10-14T03:14:14,828 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (LittleProxy-JVM-shutdown-hook) Shutting down proxy server immediately (non-graceful) 
+[INFO  2023-10-14T03:14:14,856 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (LittleProxy-JVM-shutdown-hook) Closing all channels (non-graceful) 
+actLifeCycle.start(AbstractLifeCycle.java:55) ~[browsermob-dist-2.1.4.jar:?]
+	at net.lightbody.bmp.proxy.Main.main(Main.java:64) [browsermob-dist-2.1.4.jar:?]
 
