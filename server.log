@@ -4,12 +4,12 @@ WARNING: Illegal reflective access by com.google.inject.internal.cglib.core.$Ref
 WARNING: Please consider reporting this to the maintainers of com.google.inject.internal.cglib.core.$ReflectUtils$2
 WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
 WARNING: All illegal access operations will be denied in a future release
-[INFO  2023-10-10T13:22:08,383 net.lightbody.bmp.proxy.Main] (main) Starting BrowserMob Proxy version 2.1.4 
-[INFO  2023-10-10T13:22:08,407 org.eclipse.jetty.util.log] (main) jetty-7.x.y-SNAPSHOT 
-[INFO  2023-10-10T13:22:08,444 org.eclipse.jetty.util.log] (main) started o.e.j.s.ServletContextHandler{/,null} 
-[WARN  2023-10-10T13:22:08,609 org.eclipse.jetty.util.log] (main) FAILED SelectChannelConnector@0.0.0.0:9090: java.net.BindException: Address already in use 
-[WARN  2023-10-10T13:22:08,609 org.eclipse.jetty.util.log] (main) FAILED org.eclipse.jetty.server.Server@61a91912: java.net.BindException: Address already in use 
-[ERROR 2023-10-10T13:22:08,610 net.lightbody.bmp.proxy.Main] (main) Failed to start Jetty server. Aborting. java.net.BindException: Address already in use
+[INFO  2023-10-14T02:35:48,886 net.lightbody.bmp.proxy.Main] (main) Starting BrowserMob Proxy version 2.1.4 
+[INFO  2023-10-14T02:35:48,913 org.eclipse.jetty.util.log] (main) jetty-7.x.y-SNAPSHOT 
+[INFO  2023-10-14T02:35:48,950 org.eclipse.jetty.util.log] (main) started o.e.j.s.ServletContextHandler{/,null} 
+[WARN  2023-10-14T02:35:49,138 org.eclipse.jetty.util.log] (main) FAILED SelectChannelConnector@0.0.0.0:9090: java.net.BindException: Address already in use 
+[WARN  2023-10-14T02:35:49,138 org.eclipse.jetty.util.log] (main) FAILED org.eclipse.jetty.server.Server@61a91912: java.net.BindException: Address already in use 
+[ERROR 2023-10-14T02:35:49,139 net.lightbody.bmp.proxy.Main] (main) Failed to start Jetty server. Aborting. java.net.BindException: Address already in use
 	at sun.nio.ch.Net.bind0(Native Method) ~[?:?]
 	at sun.nio.ch.Net.bind(Net.java:455) ~[?:?]
 	at sun.nio.ch.Net.bind(Net.java:447) ~[?:?]
