@@ -96,5 +96,5 @@ def calculate_qos():
         "avg_bitrate": round(avg_bitrate, 2),
         "delay": round(delay, 2) if delay else -1,
         "jitter": round(jitter, 2) if jitter else -1,
-        "packet_loss": round(packet_loss, 2),
+        "packet_loss": round(packet_loss, 2) if packet_loss else -1,
     }
