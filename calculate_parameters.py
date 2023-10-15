@@ -19,20 +19,21 @@ def get_ip_address(domain):
 def get_main_parameters(host, count=5):
     print("Pinging host: " + host)
     try:
-        ping_output = subprocess.check_output(['ping', '-c', str(count), host], stderr=subprocess.STDOUT,
-                                              timeout=5)
+        ping_output = subprocess.check_output(['ping', '-c', str(count), host], stderr=subprocess.STDOUT)
         ping_output = ping_output.decode('utf-8')
+        for output_line in ping_output.split("\n"):
+            print(output_line)
         delay_values = re.findall(r'time=(\d+\.\d+) ms', ping_output)
-
-        packet_loss_match = re.search(r'(\d+)% packet loss', ping_output)
+        packet_loss_match = re.search(r'(\d+\.\d+)% packet loss', ping_output)
         if packet_loss_match:
-            packet_loss = int(packet_loss_match.group(1))
+            packet_loss = float(packet_loss_match.group(1))
         else:
             packet_loss = count  # Assume all packets are lost in case of a timeout
 
         if delay_values:
             delay = float(delay_values[0]) / 1000  # Convert to seconds
             jitter = statistics.pstdev(map(float, delay_values)) / 1000  # Convert to seconds
+            print(delay, jitter, packet_loss)
             return delay, jitter, packet_loss
         else:
             return None, None, packet_loss
@@ -73,7 +74,7 @@ def calculate_qos():
     avg_bitrate = float(total_size) * 8 / float(total_duration) / 10 ** 6  # IN Mbps
     domain = dict(real_video_requests[0])['request']['url'].split("/")[1].split("aparat.com")[0] + "aparat.com"
     server_ip = get_ip_address(domain)
-    delay, jitter, packet_loss = get_main_parameters(host=server_ip, count=3)
+    delay, jitter, packet_loss = get_main_parameters(host=server_ip, count=10)
     print(
         f" startup_time:{round(startup_time, 2)} secs,\n"
         f" bufferring_time:{round(buffering_time, 2)} secs,\n"
@@ -84,7 +85,7 @@ def calculate_qos():
         f" avg_bitrate:{round(avg_bitrate, 2)} Mbps,\n"
         f" delay:{round(delay, 4) if delay else -1} seconds,\n"
         f" jitter:{round(jitter, 4) if jitter else -1} seconds,\n"
-        f" packet_loss:{round(packet_loss, 2)}%"
+        f" packet_loss:{round(packet_loss, 4)}%"
     )
     return {
         "startup_time": round(startup_time, 2),
@@ -96,5 +97,5 @@ def calculate_qos():
         "avg_bitrate": round(avg_bitrate, 2),
         "delay": round(delay, 4) if delay else -1,
         "jitter": round(jitter, 4) if jitter else -1,
-        "packet_loss": round(packet_loss, 2),
+        "packet_loss": round(packet_loss, 4),
     }
