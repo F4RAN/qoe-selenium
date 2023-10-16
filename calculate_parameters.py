@@ -24,7 +24,7 @@ def get_main_parameters(host, count=5):
         for output_line in ping_output.split("\n"):
             print(output_line)
         delay_values = re.findall(r'time=(\d+\.\d+) ms', ping_output)
-        packet_loss_match = re.search(r'(\d+\.\d+)% packet loss', ping_output)
+        packet_loss_match = re.search(r'(\d.\d+|\d+)% packet loss', ping_output)
         if packet_loss_match:
             packet_loss = float(packet_loss_match.group(1))
         else:
