@@ -25,7 +25,7 @@ docker run -v $(pwd)/aparat_file.txt:/usr/src/app/aparat_file.txt -v $(pwd)/netw
 
 for windows systems:
 ```
-docker run -v C:\shared\aparat_file.txt:/usr/src/app/aparat_file.txt -v C:\shared\network_performance.db:/usr/src/app/network_performance.db --rm -it f4ran/qoe-selenium
+docker run -v //c/shared/aparat_file.txt:/usr/src/app/aparat_file.txt -v //c/shared/network_performance.db:/usr/src/app/network_performance.db --rm -it f4ran/qoe-selenium
 
 ```
 network_performance.db update live when application is running.
