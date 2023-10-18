@@ -6,6 +6,7 @@ in Unix-based systems:
 mkdir /path/to/shared/ && cd /path/to/shared/
 touch aparat_file.txt
 touch network_performance.db
+touch config.txt
 ```
 in Windows systems:
 
@@ -14,18 +15,19 @@ mkdir C:\shared
 cd C:\shared
 type nul > aparat_file.txt
 type nul > network_performance.db
+type nul > config.txt
 ```
 
 edit aparat_file.txt and put an Aparat video link in the each line
 
 then run the project with the bottom line:
 ```
-docker run -v $(pwd)/aparat_file.txt:/usr/src/app/aparat_file.txt -v $(pwd)/network_performance.db:/usr/src/app/network_performance.db --rm -it f4ran/qoe-selenium
+docker run -v $(pwd)/aparat_file.txt:/usr/src/app/aparat_file.txt -v $(pwd)/network_performance.db:/usr/src/app/network_performance.db -v $(pwd)/config.txt:/usr/src/app/config.txt --rm -it f4ran/qoe-selenium
 ```
 
 for windows systems:
 ```
-docker run -v //c/shared/aparat_file.txt:/usr/src/app/aparat_file.txt -v //c/shared/network_performance.db:/usr/src/app/network_performance.db --rm -it f4ran/qoe-selenium
+docker run -v //c/shared/aparat_file.txt:/usr/src/app/aparat_file.txt -v //c/shared/network_performance.db:/usr/src/app/network_performance.db -v //c/shared/config.txt:/usr/src/app/config.txt --rm -it f4ran/qoe-selenium
 
 ```
 network_performance.db update live when application is running.
