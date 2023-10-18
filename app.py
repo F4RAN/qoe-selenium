@@ -44,17 +44,17 @@ def initialize():
 
     # driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()),options=co)
     ## Local
-    # co.binary_location = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-    # service = Service(executable_path='./libs/chromedriver')
-    # driver = webdriver.Chrome(service=service, options=co)
-    # driver.set_window_size(1920, 1080)
-    ###
-
-    ## Docker
-    service = Service(executable_path='/usr/bin/chromedriver')
-    driver = webdriver.Chrome(service=service,options=co)
+    co.binary_location = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+    service = Service(executable_path='./libs/chromedriver')
+    driver = webdriver.Chrome(service=service, options=co)
     driver.set_window_size(1920, 1080)
     ###
+
+    # ## Docker
+    # service = Service(executable_path='/usr/bin/chromedriver')
+    # driver = webdriver.Chrome(service=service,options=co)
+    # driver.set_window_size(1920, 1080)
+    # ###
 
 
     # driver = webdriver.Chrome(options=co)

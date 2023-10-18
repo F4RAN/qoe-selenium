@@ -26,6 +26,7 @@ def calculate(urls, test_model, stalling):
             continue
         print(url)
         file_names.append(file_name)
+        urllib.request.timeout = 240
         urllib.request.urlretrieve(url, f"./libs/ts_files/{file_name}.ts")
         convert_ts_to_mp4(file_name)
         converted_to_mp4.append(file_name)
