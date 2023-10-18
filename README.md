@@ -1,3 +1,18 @@
+## Config file:
+We use tcconfig to customize network performance to simulate different situations
+example: You can find other options for network configuration (Here)[https://tcconfig.readthedocs.io/en/latest/pages/usage/tcset/index.html]
+```
+rate 100Kbps # Network bandwidth rate [G/M/K bps]
+delay 100ms # Network latency [microseconds/milliseconds/seconds/minutes]
+loss 0.1% # Packet loss rate [%]
+duplicate -1 # Packet corruption rate [%]
+corrupt -1 # Packet corruption rate [%]
+reordering -1 # Packet reordering rate [%]
+shaping-algo -1 # {htb,tbf}
+direction -1 # {outgoing,incoming}
+
+```
+
 ## Installation/Run scenario on Docker
 At first you must to create shared folder with 2 files: 1- aparat_file.txt, 2- network_performance.db
 
