@@ -1,6 +1,6 @@
 ## Config file:
 We use tcconfig to customize network performance to simulate different situations
-example: You can find other options for network configuration (Here)[https://tcconfig.readthedocs.io/en/latest/pages/usage/tcset/index.html]
+example: You can find other options for network configuration [Here](https://tcconfig.readthedocs.io/en/latest/pages/usage/tcset/index.html)
 ```
 rate 100Kbps # Network bandwidth rate [G/M/K bps]
 delay 100ms # Network latency [microseconds/milliseconds/seconds/minutes]
