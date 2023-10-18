@@ -1,4 +1,4 @@
-## Config file:
+## Config file (config.txt):
 We use tcconfig to customize network performance to simulate different situations
 
 example: <small>You can find other options for network configuration [Here](https://tcconfig.readthedocs.io/en/latest/pages/usage/tcset/index.html)</small>
