@@ -136,18 +136,18 @@ git clone https://github.com/F4RAN/qoe-selenium.git && cd qoe-selenium && pip3 i
 Run comma separated links:
 ```bash
 # Command
-python3 app.py --link aparat_url_1,aparat_url_2,aparat_url_3 ...
+python3 ch-app.py --link aparat_url_1,aparat_url_2,aparat_url_3 ...
 
 # Example
-python3 app.py --link https://www.aparat.com/v/BQSoN,https://www.aparat.com/v/eBvdL,https://www.aparat.com/v/2AtcF
+python3 ch-app.py --link https://www.aparat.com/v/BQSoN,https://www.aparat.com/v/eBvdL,https://www.aparat.com/v/2AtcF
 ```
 Run file (each line including one link)
 ```bash
 # Command
-python3 app.py --file path/to/aparat_urls
+python3 ch-app.py --file path/to/aparat_urls
 
 # Example
-python3 app.py --file ./aparat_file.txt
+python3 ch-app.py --file ./aparat_file.txt
 ```
 file structure: aparat_file.txt:
 

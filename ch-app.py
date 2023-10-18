@@ -4,18 +4,10 @@ import psutil
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.firefox import GeckoDriverManager
-
 from time import sleep
 from browsermobproxy import Server
 from selenium import webdriver
-
 from main import crawl
-
-print("installing gecko driver...")
-firefox = GeckoDriverManager().install()
-print("geckodriver installed.")
-
 
 def clear_directory(directory_path):
     for filename in os.listdir(directory_path):
@@ -36,20 +28,27 @@ def stop_proxy():
 
 def initialize():
     os.popen("java -jar ./libs/browsermob-proxy-2.1.4/lib/browsermob-dist-2.1.4.jar --port 9090")
-    # sleep(10)
+    sleep(2)
     server = Server("./libs/browsermob-proxy-2.1.4/bin/browsermob-proxy", options={'port': 9090})
     server.start()
     proxy = server.create_proxy()
-    options = webdriver.FirefoxOptions()
-    options.proxy = proxy.selenium_proxy()
-    options.add_argument('--ignore-ssl-errors=yes')
-    options.add_argument('--ignore-certificate-errors')
-    options.add_argument('--proxy-bypass-list=aparat.com')
-    options.headless = True
-    # options.add_argument('--mute-audio')
-    options.set_preference("media.volume_scale", "0.0")
-    service = Service(executable_path='./libs/geckodriver')
-    driver = webdriver.Firefox(service=Service(firefox), options=options)
+    co = webdriver.ChromeOptions()
+    co.add_argument('--ignore-ssl-errors=yes')
+    co.add_argument('--ignore-certificate-errors')
+    co.add_argument('--proxy-bypass-list=aparat.com"')
+    co.add_argument('--headless')
+    co.add_argument('--no-sandbox')
+    co.add_argument('--mute-audio')
+    # co.add_argument('--disable-gpu')
+    co.add_argument('--proxy-server={host}:{port}'.format(host='localhost', port=proxy.port))
+
+    # driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()),options=co)
+    ## Local
+    co.binary_location = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+    service = Service(executable_path='./libs/chromedriver')
+    driver = webdriver.Chrome(service=service, options=co)
+    driver.set_window_size(1920, 1080)
+    ###
 
     # ## Docker
     # service = Service(executable_path='/usr/bin/chromedriver')
@@ -124,8 +123,8 @@ def process_input(args, d, s, p):
         except:
             print("file not found")
             print("Please enter a valid format:")
-            print("python3 app.py --link aparat_url_1,aparat_url_2,aparat_url_3,...")
-            print("python3 app.py --file path/to/aparat_urls")
+            print("python3 ch-app.py --link aparat_url_1,aparat_url_2,aparat_url_3,...")
+            print("python3 ch-app.py --file path/to/aparat_urls")
             exit(1)
     print("Process Completed Successfully.")
     print(f"Result Percentage:{result}/{total}")
@@ -142,13 +141,13 @@ if __name__ == "__main__":
         if sys.argv[1] != "--link" and sys.argv[1] != "--file":
             print("here")
             print("Please enter a valid format:")
-            print("python3 app.py --link aparat_url_1,aparat_url_2,aparat_url_3 ...")
-            print("python3 app.py --file path/to/aparat_urls")
+            print("python3 ch-app.py --link aparat_url_1,aparat_url_2,aparat_url_3 ...")
+            print("python3 ch-app.py --file path/to/aparat_urls")
             exit(1)
         driver, server, proxy = initialize()
         process_input(sys.argv, driver, server, proxy)
     else:
         print("Please enter a valid format:")
-        print("python3 app.py --link aparat_url_1,aparat_url_2,aparat_url_3,...")
-        print("python3 app.py --file path/to/aparat_urls")
+        print("python3 ch-app.py --link aparat_url_1,aparat_url_2,aparat_url_3,...")
+        print("python3 ch-app.py --file path/to/aparat_urls")
         exit(1)
