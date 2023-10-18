@@ -13,6 +13,7 @@ shaping-algo -1 # {htb,tbf}
 direction -1 # {outgoing,incoming}
 
 ```
+<b>-1 means not set<b>
 
 ## Installation/Run scenario on Docker
 At first you must to create shared folder with 2 files: 1- aparat_file.txt, 2- network_performance.db
