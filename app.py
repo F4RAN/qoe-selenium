@@ -131,7 +131,35 @@ def process_input(args, d, s, p):
     print(f"Result Percentage:{result}/{total}")
 
 
+def process_config():
+    with open('config.txt', 'r') as file:
+        content = file.read()
+    config = content.split("\n")
+    tcconfig_command = "tcset --device eth0 "
+    tcconfig_args = ""
+    for i in config:
+        try:
+            key = i.split(" ")[0]
+            value = i.split(" ")[1]
+            if value == "-1":
+                continue
+            else:
+                tcconfig_args += f" --{key} {value}"
+        except:
+            continue
+    if len(tcconfig_args) > 0:
+        try:
+            os.system(tcconfig_command + tcconfig_args)
+        except:
+            print("error in tcconfig")
+    else:
+        print("no config found")
+
+
+
+
 if __name__ == "__main__":
+    process_config()
     try:
         os.system("pkill -f 'java -jar ./libs/browsermob-proxy-2.1.4/lib/browsermob-dist-2.1.4.jar'")
         clear_directory("./libs/mp4_files")

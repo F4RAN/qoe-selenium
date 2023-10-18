@@ -14,7 +14,7 @@ RUN apt install ffmpeg -y
 RUN apt install build-essential -y
 
 # Install other packages
-RUN apt install libavformat-dev libavdevice-dev libavfilter-dev libswscale-dev pkg-config firefox openjdk-11-jdk -y
+RUN apt install libavformat-dev libavdevice-dev libavfilter-dev libswscale-dev pkg-config firefox openjdk-11-jdk iproute2 -y
 
 WORKDIR /tmp
 
@@ -24,6 +24,8 @@ RUN git clone https://github.com/slhck/ffmpeg-debug-qp.git \
   && make \
   && cp ffmpeg_debug_qp /usr/bin/ffmpeg_debug_qp \
   && chmod +x /usr/bin/ffmpeg_debug_qp
+
+RUN pip3 install tcconfig
 
 WORKDIR /usr/src/app
 
