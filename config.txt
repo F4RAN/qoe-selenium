@@ -1,8 +1,0 @@
-rate 100Kbps
-delay 100ms
-loss 0.1%
-duplicate -1
-corrupt -1
-reordering -1
-shaping-algo -1
-direction -1
