@@ -50,12 +50,16 @@ docker run -v $(pwd)/aparat_file.txt:/usr/src/app/aparat_file.txt -v $(pwd)/netw
 docker run -v $(pwd)/aparat_file.txt:/usr/src/app/aparat_file.txt -v $(pwd)/network_performance.db:/usr/src/app/network_performance.db -v $(pwd)/config.txt:/usr/src/app/config.txt --cap-add NET_ADMIN --rm -it f4ran/qoe-selenium-arm
 ```
 
-# WINDOWS RUN PROJECT:
+# WINDOWS RUN PROJECT
 
 ```
 docker run -v //c/shared/aparat_file.txt:/usr/src/app/aparat_file.txt -v //c/shared/network_performance.db:/usr/src/app/network_performance.db -v //c/shared/config.txt:/usr/src/app/config.txt --cap-add NET_ADMIN --rm -it f4ran/qoe-selenium-amd
 ```
 
+
+<hr>
+
+For more information click on [Full Documentation](https://github.com/F4RAN/qoe-selenium/blob/main/DOCUMENTATION.md)
 
 
 
