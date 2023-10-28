@@ -1,6 +1,6 @@
 # PLEASE CREATE FILES AT FIRST 
 
-At first you must to create shared folder with 3 files:
+At first you must to create a shared folder with 3 necessary files:
 
 1- aparat_file.txt, 
 
