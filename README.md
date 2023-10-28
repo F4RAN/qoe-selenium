@@ -30,7 +30,7 @@ loss 10%
 mkdir /path/to/shared/ && cd /path/to/shared/
 touch aparat_file.txt && touch network_performance.db && touch config.txt
 ```
-* Choose a custom path instead of /path/to/shared
+* Choose a custom path instead of `/path/to/shared`
 
 ### WINDOWS ( CREATE FILES IN SINGLE COMMAND )
 ```
