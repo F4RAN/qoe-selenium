@@ -1,4 +1,4 @@
-# PLEASE CREATE FILES FIRST 
+# PLEASE CREATE FILES AT FIRST 
 
 At first you must to create shared folder with 3 files:
 
@@ -10,7 +10,7 @@ At first you must to create shared folder with 3 files:
 
 ### Files Description
 
-`aparat.txt`: copy from aparat.txt in root of project ( you can access it Here and copy records to paste in your aparat.txt file)
+`aparat.txt`: copy from [aparat.txt in root of project](https://github.com/F4RAN/qoe-selenium/blob/main/aparat_file.txt) ( you can access it [Here](https://github.com/F4RAN/qoe-selenium/blob/main/aparat_file.txt) and copy records to paste in your aparat.txt file)
 
 `config.txt`: 
 Set network parameters (if you dont want each limitation you can simply remove that line)
