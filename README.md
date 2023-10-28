@@ -1,53 +1,60 @@
-## Config file (config.txt):
-We use tcconfig to customize network performance to simulate different situations
+# PLEASE CREATE FILES FIRST 
 
-example: <small>You can find other options for network configuration [Here](https://tcconfig.readthedocs.io/en/latest/pages/usage/tcset/index.html)</small>
+At first you must to create shared folder with 3 files:
+
+1- aparat_file.txt, 
+
+2- network_performance.db,
+
+3- config.txt
+
+### Files Description
+
+`aparat.txt`: copy from aparat.txt in root of project ( you can access it Here and copy records to paste in your aparat.txt file)
+
+`config.txt`: 
+Set network parameters (if you dont want each limitation you can simply remove that line)
 ```
-rate 100Kbps # Network bandwidth rate [G/M/K bps]
-delay 100ms # Network latency [microseconds/milliseconds/seconds/minutes]
-loss 0.1% # Packet loss rate [%]
-duplicate -1 # Packet corruption rate [%]
-corrupt -1 # Packet corruption rate [%]
-reordering -1 # Packet reordering rate [%]
-shaping-algo -1 # {htb,tbf}
-direction -1 # {outgoing,incoming}
-
+rate 100Kbps
+delay 100ms
+loss 10%
 ```
-<b>-1 means not set<b>
 
-## Installation/Run scenario on Docker
-At first you must to create shared folder with 2 files: 1- aparat_file.txt, 2- network_performance.db
+`network_performance.db`: after running program, results live saved into this file.
 
-in Unix-based systems:
+### LINUX
 ```
 mkdir /path/to/shared/ && cd /path/to/shared/
-touch aparat_file.txt
-touch network_performance.db
-touch config.txt
+touch aparat_file.txt && touch network_performance.db && touch config.txt
 ```
-in Windows systems:
+* Choose a custom path instead of /path/to/shared
 
+### WINDOWS
 ```
-mkdir C:\shared 
-cd C:\shared
-type nul > aparat_file.txt
-type nul > network_performance.db
-type nul > config.txt
+mkdir C:\shared & cd C:\shared & type nul > aparat_file.txt & type nul > network_performance.db & type nul > config.txt 
 ```
 
-edit aparat_file.txt and put an Aparat video link in the each line
 
-then run the project with the bottom line:
+
+# RUN PROJECT
+## LINUX
+
+#### AMD Arch
 ```
 docker run -v $(pwd)/aparat_file.txt:/usr/src/app/aparat_file.txt -v $(pwd)/network_performance.db:/usr/src/app/network_performance.db -v $(pwd)/config.txt:/usr/src/app/config.txt --cap-add NET_ADMIN --rm -it f4ran/qoe-selenium-amd
-# For arm architecture use f4ran/qoe-selenium-arm
+```
+#### ARM Arch
+```
+docker run -v $(pwd)/aparat_file.txt:/usr/src/app/aparat_file.txt -v $(pwd)/network_performance.db:/usr/src/app/network_performance.db -v $(pwd)/config.txt:/usr/src/app/config.txt --cap-add NET_ADMIN --rm -it f4ran/qoe-selenium-arm
 ```
 
-for windows systems:
+## WINDOWS:
+
 ```
 docker run -v //c/shared/aparat_file.txt:/usr/src/app/aparat_file.txt -v //c/shared/network_performance.db:/usr/src/app/network_performance.db -v //c/shared/config.txt:/usr/src/app/config.txt --cap-add NET_ADMIN --rm -it f4ran/qoe-selenium-amd
-# For arm architecture use f4ran/qoe-selenium-arm
-
 ```
-network_performance.db update live when application is running.
+
+
+
+
 
