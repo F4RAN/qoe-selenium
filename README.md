@@ -59,7 +59,9 @@ docker run -v //c/shared/aparat_file.txt:/usr/src/app/aparat_file.txt -v //c/sha
 
 <hr>
 
-For more information click on [Full Documentation](https://github.com/F4RAN/qoe-selenium/blob/main/DOCUMENTATION.md)
+Notice that you dont need clone project when u are using Docker
+
+For more information of install project directly click on [Full Documentation](https://github.com/F4RAN/qoe-selenium/blob/main/DOCUMENTATION.md)
 
 
 
