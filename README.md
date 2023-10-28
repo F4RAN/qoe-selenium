@@ -22,22 +22,21 @@ loss 10%
 
 `network_performance.db`: after running program, results live saved into this file.
 
-### LINUX
+### LINUX ( CREATE FILES IN SINGLE COMMAND )
 ```
 mkdir /path/to/shared/ && cd /path/to/shared/
 touch aparat_file.txt && touch network_performance.db && touch config.txt
 ```
 * Choose a custom path instead of /path/to/shared
 
-### WINDOWS
+### WINDOWS ( CREATE FILES IN SINGLE COMMAND )
 ```
 mkdir C:\shared & cd C:\shared & type nul > aparat_file.txt & type nul > network_performance.db & type nul > config.txt 
 ```
 
 
 
-# RUN PROJECT
-## LINUX
+# LINUX RUN PROJECT
 
 #### AMD Arch
 ```
@@ -48,7 +47,7 @@ docker run -v $(pwd)/aparat_file.txt:/usr/src/app/aparat_file.txt -v $(pwd)/netw
 docker run -v $(pwd)/aparat_file.txt:/usr/src/app/aparat_file.txt -v $(pwd)/network_performance.db:/usr/src/app/network_performance.db -v $(pwd)/config.txt:/usr/src/app/config.txt --cap-add NET_ADMIN --rm -it f4ran/qoe-selenium-arm
 ```
 
-## WINDOWS:
+## WINDOWS RUN PROJECT:
 
 ```
 docker run -v //c/shared/aparat_file.txt:/usr/src/app/aparat_file.txt -v //c/shared/network_performance.db:/usr/src/app/network_performance.db -v //c/shared/config.txt:/usr/src/app/config.txt --cap-add NET_ADMIN --rm -it f4ran/qoe-selenium-amd
