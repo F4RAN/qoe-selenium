@@ -12,7 +12,7 @@ At first you must to create a shared folder with 3 necessary files:
 
 1- `aparat.txt`: copy from [aparat.txt in root of project](https://github.com/F4RAN/qoe-selenium/blob/main/aparat_file.txt) ( you can access it [Here](https://github.com/F4RAN/qoe-selenium/blob/main/aparat_file.txt) and copy records to paste in your aparat.txt file)
 
-2- `config.txt`: 
+2- `config.txt` (just create and leave it empty if you are using Windows): 
 Set network parameters (if you dont want each limitation you can simply remove that line)
 ```
 rate 100Kbps
