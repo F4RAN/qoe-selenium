@@ -7,6 +7,7 @@ import statistics
 import subprocess
 
 
+
 def get_ip_address(domain):
     try:
         domain_encoded = domain.encode('idna').decode()

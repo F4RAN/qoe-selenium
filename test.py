@@ -10,7 +10,11 @@ from itu_p1203 import p1203_standalone
 def convert_ts_to_mp4(ts):
     print(f"Converting {ts} to mp4...")
     command = ['ffmpeg', '-i', f'./libs/ts_files/{ts}.ts', '-c', 'copy', '-bsf:a', 'aac_adtstoasc', '-f', 'mp4', f'./libs/mp4_files/{ts}.mp4']
-    result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    try:
+        result = subprocess.run(command, timeout=10, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    except:
+        print("FFMEPG TIMED OUT")
+        return False
     if result.returncode == 0:
         return True
     else:

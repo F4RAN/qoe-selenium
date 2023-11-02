@@ -1,5 +1,6 @@
 import datetime
 import json
+import os
 import time
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
@@ -13,6 +14,37 @@ duration = 40
 check_advertise_time = 2
 while_sleep = 0.5
 
+config_found = False
+def process_config():
+    with open('config.txt', 'r') as file:
+        content = file.read()
+    config = content.split("\n")
+    tcconfig_command = "tcset --device eth0 "
+    tcconfig_args = ""
+    for i in config:
+        try:
+            key = i.split(" ")[0]
+            value = i.split(" ")[1]
+            if value == "-1":
+                continue
+            else:
+                tcconfig_args += f" --{key} {value}"
+        except:
+            continue
+    if len(tcconfig_args) > 0:
+        try:
+            os.system(tcconfig_command + tcconfig_args)
+            global config_found
+            config_found = True
+        except:
+            print("error in tcconfig")
+    else:
+        print("no config found")
+
+
+
+
+
 def hover(driver):
     action = ActionChains(driver)
     player = driver.find_element(By.CLASS_NAME, 'player-wrapper')
@@ -23,6 +55,7 @@ def hover(driver):
 def crawl(url, driver, server, proxy):
     advertise = True
     print('===============QoE Assessment in Multimedia===============')
+    process_config()
     print(f"Request to {url}")
     driver.get(url)
     # Measure page load time and throughput
@@ -56,7 +89,7 @@ def crawl(url, driver, server, proxy):
             if controls and ("ad-mode" not in classess):
                 break
             elif controls and ("ad-mode" in classess):
-                print("Finding skip button, Please wait...")
+                print("Finding skip button, Please wait...",end="\r")
                 try:
                     skip = driver.find_element(By.CLASS_NAME, 'vast-skip-button')
                     skip.click()
@@ -68,7 +101,7 @@ def crawl(url, driver, server, proxy):
                         play.click()
                     pass
         except:
-            print(f"{c} - problem with advertisement wait for timeout")
+            print(f"{c} - problem with advertisement wait for timeout", end="\r")
             pass
         driver.save_screenshot('tst.png')
         time.sleep(0.5)
@@ -102,7 +135,7 @@ def crawl(url, driver, server, proxy):
     # if advertise and skip:
     #     advertise.click()
 
-    print('video started')
+    print('----------------- video started ----------------')
     start_time = datetime.datetime.now()
     counter = 0
     stalling_time = 0
@@ -124,7 +157,7 @@ def crawl(url, driver, server, proxy):
             # )
             element = driver.find_element(By.CLASS_NAME, "romeo-current")
             current = int(element.get_attribute("innerText").split(":")[1])
-            print(current)
+            print("Timer: ",current, end="\r")
 
 
             try:
@@ -208,9 +241,8 @@ def crawl(url, driver, server, proxy):
 
     with open("network_log1.har", "w", encoding="utf-8") as f:
         f.write(json.dumps(proxy.har))
-
     try:
-        process_har(json.dumps(proxy.har), test_model, stalling)
+        process_har(json.dumps(proxy.har), test_model, stalling,config_found)
         return True
     except Exception as e:
         print(e)
