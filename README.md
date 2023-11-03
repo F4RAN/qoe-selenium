@@ -79,9 +79,16 @@ docker run -d --name medium-3g -v $(pwd)/aparat_file.txt:/usr/src/app/aparat_fil
 ```
 
 #### Attach then
+```
+docker attach medium-3g
+```
+you can quit with `Cntrl-p``Cntrl-q`  not `Cntrl-c`
 
 
-
+#### Monitor databes single command
+```
+cd ~ && cd parspack-result-poor-3g && sqlite3 network_performance.db "SELECT * FROM network_data;" && cd ../parspack-result-medium-3g && sqlite3 network_performance.db "SELECT * FROM network_data;" && cd ../parspack-result-good-3g && sqlite3 network_performance.db "SELECT * FROM network_data;" && cd ~
+```
 
 <hr>
 
