@@ -1,3 +1,5 @@
+Each Configs Contains 2 blocks '-incoming' and '-outgoing' in your config.txt file you should use this keys or leave it empty at all ( In windows systems )
+
 **4G Profiles:**
 
 Good 4G:
