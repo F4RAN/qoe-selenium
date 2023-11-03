@@ -1,4 +1,5 @@
 import os
+import platform
 import sys
 import psutil
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -10,11 +11,26 @@ from time import sleep
 from browsermobproxy import Server
 from selenium import webdriver
 
+
 from main import crawl
 
-print("installing gecko driver...")
-firefox = GeckoDriverManager().install()
-print("geckodriver installed.")
+if platform.machine() != "aarch64":
+    print("installing gecko driver...")
+    firefox = GeckoDriverManager().install()
+    print("geckodriver installed.")
+else:
+    print("Arch64 detected. Installing geckodriver...")
+    import requests
+    # Download arch64 geckodriver from https://github.com/mozilla/geckodriver/releases/download/v0.33.0/geckodriver-v0.33.0-linux-aarch64.tar.gz
+    res = requests.get("https://github.com/mozilla/geckodriver/releases/download/v0.33.0/geckodriver-v0.33.0-linux-aarch64.tar.gz")
+    with open("./libs/geckodriver.tar.gz", "wb") as f:
+        f.write(res.content)
+    os.system("tar -xvzf ./libs/geckodriver.tar.gz -C ./libs/")
+    firefox = "./libs/geckodriver"
+    print("geckodriver installed.")
+
+
+
 
 
 def clear_directory(directory_path):

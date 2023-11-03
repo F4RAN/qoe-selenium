@@ -1,28 +1,20 @@
-[INFO  2023-11-02T20:13:59,798 net.lightbody.bmp.proxy.Main] (main) Starting BrowserMob Proxy version 2.1.4 
-[INFO  2023-11-02T20:13:59,839 org.eclipse.jetty.util.log] (main) jetty-7.x.y-SNAPSHOT 
-[INFO  2023-11-02T20:13:59,878 org.eclipse.jetty.util.log] (main) started o.e.j.s.ServletContextHandler{/,null} 
-[WARN  2023-11-02T20:14:00,080 org.eclipse.jetty.util.log] (main) FAILED SelectChannelConnector@0.0.0.0:9090: j[INFO  2023-11-02T20:14:00,882 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp220432328-16) Starting proxy at address: 0.0.0.0/0.0.0.0:8081 
-[INFO  2023-11-02T20:14:00,924 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp220432328-16) Proxy listening with TCP transport 
-[INFO  2023-11-02T20:14:01,010 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp220432328-16) Proxy started at address: /0:0:0:0:0:0:0:0:8081 
-[INFO  2023-11-02T20:14:08,028 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-6) (NEGOTIATING_CONNECT) [id: 0xa736df7b, L:/127.0.0.1:8081 - R:/127.0.0.1:50831]: An IOException occurred on ClientToProxyConnection: Connection reset by peer 
-[INFO  2023-11-02T20:14:08,178 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-5) (HANDSHAKING) [id: 0xb99b2a3d, L:0.0.0.0/0.0.0.0:50843]: Connection to upstream server failed java.nio.channels.ClosedChannelException: null
-	at io.netty.handler.ssl.SslHandler.channelInactive(...)(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
-
-[INFO  2023-11-02T20:14:08,435 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-3) (NEGOTIATING_CONNECT) [id: 0x6511dba6, L:/127.0.0.1:8081 - R:/127.0.0.1:50826]: An IOException occurred on ClientToProxyConnection: Connection reset by peer 
-[INFO  2023-11-02T20:14:08,446 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-2) (HANDSHAKING) [id: 0x8e7c1eaa, L:0.0.0.0/0.0.0.0:50828]: Connection to upstream server failed java.nio.channels.ClosedChannelException: null
-	at io.netty.handler.ssl.SslHandler.channelInactive(...)(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
-
-[INFO  2023-11-02T20:14:08,586 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-4) (NEGOTIATING_CONNECT) [id: 0x46d29e91, L:/127.0.0.1:8081 - R:/127.0.0.1:50829]: An IOException occurred on ClientToProxyConnection: Connection reset by peer 
-[INFO  2023-11-02T20:14:08,608 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-5) (HANDSHAKING) [id: 0x2fbe1259, L:0.0.0.0/0.0.0.0:50853]: Connection to upstream server failed java.nio.channels.ClosedChannelException: null
-	at io.netty.handler.ssl.SslHandler.channelInactive(...)(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
-
-[INFO  2023-11-02T20:14:14,541 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (LittleProxy-JVM-shutdown-hook) Shutting down proxy server immediately (non-graceful) 
-[INFO  2023-11-02T20:14:14,546 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (LittleProxy-JVM-shutdown-hook) Closing all channels (non-graceful) 
-[INFO  2023-11-02T20:14:14,616 org.littleshoot.proxy.impl.ServerGroup] (LittleProxy-JVM-shutdown-hook) Shutting down server group event loops (non-graceful) 
-[INFO  2023-11-02T20:14:14,625 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (LittleProxy-JVM-shutdown-hook) Done shutting down proxy server 
-[INFO  2023-11-02T20:14:14,632 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-1) (HANDSHAKING) [id: 0x06baf6d2, L:0.0.0.0/0.0.0.0:50860]: Connection to upstream server failed java.nio.channels.ClosedChannelException: null
-	at io.netty.handler.ssl.SslHandler.channelInactive(...)(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
-
-[INFO  2023-11-02T20:14:14,632 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-3) (CONNECTING) [id: 0x08da6340]: Connection to upstream server failed java.nio.channels.ClosedChannelException: null
-	at io.netty.channel.nio.AbstractNioChannel.doClose()(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
+[INFO  2023-11-03T06:29:51,102 net.lightbody.bmp.proxy.Main] (main) Starting BrowserMob Proxy version 2.1.4 
+[INFO  2023-11-03T06:29:51,258 org.eclipse.jetty.util.log] (main) jetty-7.x.y-SNAPSHOT 
+[INFO  2023-11-03T06:29:51,318 org.eclipse.jetty.util.log] (main) started o.e.j.s.ServletContextHandler{/,null} 
+[INFO  2023-11-03T06:29:51,584 org.eclipse.jetty.util.log] (main) Started SelectChannelConnector@0.0.0.0:9090 
+ava.net.BindException: Address already in use 
+[WARN  2023-11-03T06:29:51,583 org.eclipse.jetty.util.log] (main) FAILED org.eclipse.jetty.server.Server@1bcf67e8: java.net.BindException: Address already in use 
+[ERROR 2023-11-03T06:29:51,584 net.lightbody.bmp.proxy.Main] (main) Failed to start Jetty server. Aborting. java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method) ~[?:?]
+	at sun.nio.ch.Net.bind(Net.java:455) ~[?:?]
+	at sun.nio.ch.Net.bind(Net.java:447) ~[?:?]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:227) ~[?:?]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:80) ~[?:?]
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.open(SelectChannelConnector.java:162) ~[browsermob-dist-2.1.4.jar:?]
+	at org.eclipse.jetty.server.AbstractConnector.doStart(AbstractConnector.java:356) ~[browsermob-dist-2.1.4.jar:?]
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.doStart(SelectChannelConnector.java:240) ~[browsermob-dist-2.1.4.jar:?]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:55) ~[browsermob-dist-2.1.4.jar:?]
+	at org.eclipse.jetty.server.Server.doStart(Server.java:269) ~[browsermob-dist-2.1.4.jar:?]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:55) ~[browsermob-dist-2.1.4.jar:?]
+	at net.lightbody.bmp.proxy.Main.main(Main.java:64) [browsermob-dist-2.1.4.jar:?]
 

@@ -16,30 +16,65 @@ while_sleep = 0.5
 
 config_found = False
 def process_config():
+    global config_found
     with open('config.txt', 'r') as file:
         content = file.read()
     config = content.split("\n")
+    have_incoming = True if '-incoming' in config else False
+    have_outgoing = True if '-outgoing' in config else False
     tcconfig_command = "tcset --device eth0 "
-    tcconfig_args = ""
-    for i in config:
-        try:
-            key = i.split(" ")[0]
-            value = i.split(" ")[1]
-            if value == "-1":
+    tcconfig_args_incoming = ""
+    tcconfig_args_outgoing = ""
+    if have_incoming:
+        tcconfig_args_incoming += " --direction incoming "
+        if config.index('-outgoing') == -1:
+            list_dist = len(config)
+        else:
+            list_dist = config.index('-outgoing')
+
+        for i in config[config.index('-incoming'):list_dist]:
+            try:
+                key = i.split(" ")[0]
+                value = i.split(" ")[1]
+                if value == "-1":
+                    continue
+                else:
+                    tcconfig_args_incoming += f" --{key} {value}"
+            except:
                 continue
-            else:
-                tcconfig_args += f" --{key} {value}"
-        except:
-            continue
-    if len(tcconfig_args) > 0:
+    if have_outgoing:
+        tcconfig_args_outgoing += " --direction outgoing "
+        for i in config[config.index('-outgoing'):]:
+            try:
+                key = i.split(" ")[0]
+                value = i.split(" ")[1]
+                if value == "-1":
+                    continue
+                else:
+                    tcconfig_args_outgoing += f" --{key} {value}"
+            except:
+                continue
+
+    if len(tcconfig_args_incoming) > 0:
         try:
-            os.system(tcconfig_command + tcconfig_args)
-            global config_found
+            os.system(tcconfig_command + tcconfig_args_incoming)
+            print(tcconfig_command + tcconfig_args_incoming)
             config_found = True
         except:
             print("error in tcconfig")
     else:
-        print("no config found")
+        print("no incoming config found")
+    if len(tcconfig_args_outgoing) > 0:
+        try:
+            os.system(tcconfig_command + tcconfig_args_outgoing)
+            print(tcconfig_command + tcconfig_args_outgoing)
+            config_found = True
+        except:
+            print("error in tcconfig")
+    else:
+        print("no outgoing config found")
+
+
 
 
 
@@ -55,7 +90,10 @@ def hover(driver):
 def crawl(url, driver, server, proxy):
     advertise = True
     print('===============QoE Assessment in Multimedia===============')
-    process_config()
+    try:
+        process_config()
+    except Exception as e:
+        print(e)
     print(f"Request to {url}")
     driver.get(url)
     # Measure page load time and throughput
