@@ -164,47 +164,6 @@ loss 2%
 rate 1.25Mbps
 ```
 
-**Dial-up Profiles:**
-
-Good Dial-up:
-
-```md
--incoming
-delay 300ms
-loss 0%
-rate 100Kbps
--outgoing
-delay 300ms
-loss 0%
-rate 50Kbps
-```
-
-Medium Dial-up:
-
-```md
--incoming
-delay 500ms
-loss 1%
-rate 50Kbps
--outgoing
-delay 500ms
-loss 1%
-rate 25Kbps
-```
-
-Poor Dial-up:
-
-```md
--incoming
-delay 700ms
-loss 2%
-rate 25Kbps
--outgoing
-delay 700ms
-loss 2%
-rate 12.5Kbps
-```
-
 **Satellite Profiles:**
 
 Good Satellite:
