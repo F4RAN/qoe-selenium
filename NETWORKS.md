@@ -1,4 +1,4 @@
-Each Configs Contains 2 blocks '-incoming' and '-outgoing' in your config.txt file you should use this keys or leave it empty at all ( In windows systems )
+Each configs contains 2 blocks '-incoming' and '-outgoing' in your config.txt file you should use this keys or leave it empty at all ( In the windows systems )
 
 **4G Profiles:**
 
