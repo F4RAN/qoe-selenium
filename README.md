@@ -15,7 +15,7 @@ At first you must to create a shared folder with 3 necessary files:
 2- `config.txt` (just create and leave it empty if you are using Windows): 
 Set network parameters (if you dont want each limitation you can simply remove that line)
 
-You can use the prepared configs and just copy them in your `config.txt` file. ([for show Prepared Configs Click Here](https://github.com/F4RAN/qoe-selenium/blob/main/NETWORKS.md))
+You can use the prepared configs and just copy them in your `config.txt` file. ([ to show Prepared Configs Click Here ](https://github.com/F4RAN/qoe-selenium/blob/main/NETWORKS.md))
 ```
 rate 100Kbps
 delay 100ms
