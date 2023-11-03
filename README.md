@@ -66,11 +66,31 @@ docker run -v //c/shared/aparat_file.txt:/usr/src/app/aparat_file.txt -v //c/sha
 ```
 
 
+# SERVER 
+#### Create Files
+```
+mkdir medium-3g && cd medium-3g && touch aparat_file.txt && touch network_performance.db && touch config.txt
+```
+then like other scenarios set them
+
+#### Run detached
+```
+docker run -d --name medium-3g -v $(pwd)/aparat_file.txt:/usr/src/app/aparat_file.txt -v $(pwd)/network_performance.db:/usr/src/app/network_performance.db -v $(pwd)/config.txt:/usr/src/app/config.txt --cap-add NET_ADMIN --rm -it f4ran/qoe-selenium-amd
+```
+
+#### Attach then
+
+
+
+
 <hr>
+
 
 Notice that you dont need clone project when u are using Docker
 
 For more information of install project directly click on [Full Documentation](https://github.com/F4RAN/qoe-selenium/blob/main/DOCUMENTATION.md)
+
+
 
 
 
