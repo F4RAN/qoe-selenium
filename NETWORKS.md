@@ -247,6 +247,91 @@ rate 125Kbps
 ```
 
 
+**DSL Profiles:**
+
+Poor DSL:
+
+```md
+-incoming
+delay 100ms
+loss 5%
+rate 1Mbps
+-outgoing
+delay 100ms
+loss 5%
+rate 500Kbps
+```
+
+Medium DSL:
+
+```md
+-incoming
+delay 80ms
+loss 3%
+rate 2Mbps
+-outgoing
+delay 80ms
+loss 3%
+rate 1Mbps
+```
+
+Good DSL:
+
+```md
+-incoming
+delay 60ms
+loss 2%
+rate 5Mbps
+-outgoing
+delay 60ms
+loss 2%
+rate 2.5Mbps
+```
+
+**Dial-up Profiles:**
+
+Poor Dial-up:
+
+```md
+-incoming
+delay 300ms
+loss 10%
+rate 500Kbps
+-outgoing
+delay 300ms
+loss 10%
+rate 250Kbps
+```
+
+Medium Dial-up:
+
+```md
+-incoming
+delay 200ms
+loss 5%
+rate 1Mbps
+-outgoing
+delay 200ms
+loss 5%
+rate 500Kbps
+```
+
+Good Dial-up:
+
+```md
+-incoming
+delay 100ms
+loss 2%
+rate 2Mbps
+-outgoing
+delay 100ms
+loss 2%
+rate 1Mbps
+```
+
+
+
+
 **Poor 4G with Custom Loss:**
 
 ```md
