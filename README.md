@@ -85,9 +85,28 @@ docker attach medium-3g
 you can quit with `Cntrl-p``Cntrl-q`  not `Cntrl-c`
 
 
-#### Monitor databes single command
+#### Monitor databases
 ```
-cd ~ && cd folder-poor-3g && sqlite3 network_performance.db "SELECT * FROM network_data;" && cd ../folder-medium-3g && sqlite3 network_performance.db "SELECT * FROM network_data;" && cd ../folder-good-3g && sqlite3 network_performance.db "SELECT * FROM network_data;" && cd ~
+cd ~ & nano monitor.sh
+```
+then copy this code in it:
+```
+cd ~
+folder="folder1 folder2 folder3"
+for f in $folder; do
+  echo "**********************************************************"
+  echo $f + "Results:"
+  echo "**********************************************************"
+  cd $f
+  sqlite3 network_performance.db "SELECT * FROM network_data;"
+  cd ..
+done
+
+```
+change folder variables with ur folder names
+and then run it with
+```
+bash monitor.sh
 ```
 
 <hr>
