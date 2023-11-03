@@ -16,10 +16,17 @@ At first you must to create a shared folder with 3 necessary files:
 Set network parameters (if you dont want each limitation you can simply remove that line)
 
 You can use the prepared configs and just copy them in your `config.txt` file. ([ to show Prepared Configs Click Here ](https://github.com/F4RAN/qoe-selenium/blob/main/NETWORKS.md))
+
+For example, bottom config is related to the "Good 3G Network" to See more [Click Here](https://github.com/F4RAN/qoe-selenium/blob/main/NETWORKS.md)
 ```
-rate 100Kbps
-delay 100ms
-loss 10%
+-incoming
+delay 30ms
+loss 0%
+rate 1Mbps
+-outgoing
+delay 30ms
+loss 0%
+rate 500Kbps
 ```
 
 3- `network_performance.db`: after running program, results live saved into this file.
