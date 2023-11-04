@@ -21,10 +21,12 @@ For example, bottom config is related to the "Good 3G Network" to See more [Clic
 ```
 -incoming
 delay 30ms
+delay-distro 7ms
 loss 0%
 rate 1Mbps
 -outgoing
 delay 30ms
+delay-distro 7ms
 loss 0%
 rate 500Kbps
 ```
