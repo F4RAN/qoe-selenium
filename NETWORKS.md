@@ -294,8 +294,6 @@ delay 600ms
 delay-distro 150ms
 loss 0%
 rate 1Mbps
-
-
 -outgoing
 delay 600ms
 delay-distro 150ms
