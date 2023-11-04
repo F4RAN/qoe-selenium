@@ -1,345 +1,333 @@
 Each configs contains 2 blocks '-incoming' and '-outgoing' in your config.txt file you should use this keys or leave it empty at all ( In the windows systems )
 
-**4G Profiles:**
 
-Good 4G:
+**4G Profiles with Jitter:**
+
+Good 4G with Jitter:
 
 ```md
 -incoming
 delay 20ms
+delay-distro 5ms
 loss 0%
 rate 10Mbps
 -outgoing
 delay 20ms
+delay-distro 5ms
 loss 0%
 rate 5Mbps
 ```
 
-Medium 4G:
+Medium 4G with Jitter:
 
 ```md
 -incoming
 delay 40ms
+delay-distro 10ms
 loss 1%
 rate 5Mbps
 -outgoing
 delay 40ms
+delay-distro 10ms
 loss 1%
 rate 2.5Mbps
 ```
 
-Poor 4G:
+Poor 4G with Jitter:
 
 ```md
 -incoming
 delay 60ms
+delay-distro 15ms
 loss 2%
 rate 2.5Mbps
 -outgoing
 delay 60ms
+delay-distro 15ms
 loss 2%
 rate 1.25Mbps
 ```
 
-**3G Profiles:**
+**3G Profiles with Jitter:**
 
-Good 3G:
+Good 3G with Jitter:
 
 ```md
 -incoming
 delay 30ms
+delay-distro 7ms
 loss 0%
 rate 1Mbps
 -outgoing
 delay 30ms
+delay-distro 7ms
 loss 0%
 rate 500Kbps
 ```
 
-Medium 3G:
+Medium 3G with Jitter:
 
 ```md
 -incoming
 delay 60ms
+delay-distro 15ms
 loss 1%
 rate 500Kbps
 -outgoing
 delay 60ms
+delay-distro 15ms
 loss 1%
 rate 250Kbps
 ```
 
-Poor 3G:
+Poor 3G with Jitter:
 
 ```md
 -incoming
 delay 90ms
+delay-distro 22ms
 loss 2%
 rate 250Kbps
 -outgoing
 delay 90ms
+delay-distro 22ms
 loss 2%
 rate 125Kbps
 ```
 
-**2G Profiles:**
+**2G Profiles with Jitter:**
 
-Good 2G:
+Good 2G with Jitter:
 
 ```md
 -incoming
 delay 100ms
+delay-distro 25ms
 loss 0%
 rate 200Kbps
 -outgoing
 delay 100ms
+delay-distro 25ms
 loss 0%
 rate 100Kbps
 ```
 
-Medium 2G:
+Medium 2G with Jitter:
 
 ```md
 -incoming
 delay 200ms
-loss 1%
+delay-distro 50ms
+loss 2%
 rate 100Kbps
 -outgoing
 delay 200ms
-loss 1%
+delay-distro 50ms
+loss 2%
 rate 50Kbps
 ```
 
-Poor 2G:
+Poor 2G with Jitter:
 
 ```md
 -incoming
 delay 300ms
-loss 2%
+delay-distro 75ms
+loss 4%
 rate 50Kbps
 -outgoing
 delay 300ms
-loss 2%
+delay-distro 75ms
+loss 4%
 rate 25Kbps
 ```
 
-**Wi-Fi Profiles:**
+**DSL Profiles with Jitter:**
 
-Good Wi-Fi:
+Good DSL with Jitter:
+
+```md
+-incoming
+delay 40ms
+delay-distro 10ms
+loss 3%
+rate 2Mbps
+-outgoing
+delay 40ms
+delay-distro 10ms
+loss 3%
+rate 1Mbps
+```
+
+Medium DSL with Jitter:
+
+```md
+-incoming
+delay 80ms
+delay-distro 20ms
+loss 5%
+rate 1Mbps
+-outgoing
+delay 80ms
+delay-distro 20ms
+loss 5%
+rate 500Kbps
+```
+
+Poor DSL with Jitter:
+
+```md
+-incoming
+delay 120ms
+delay-distro 30ms
+loss 7%
+rate 500Kbps
+-outgoing
+delay 120ms
+delay-distro 30ms
+loss 7%
+rate 250Kbps
+```
+
+**Dial-up Profiles with Jitter:**
+
+Good Dial-up with Jitter:
+
+```md
+-incoming
+delay 100ms
+delay-distro 25ms
+loss 2%
+rate 2Mbps
+-outgoing
+delay 100ms
+delay-distro 25ms
+loss 2%
+rate 1Mbps
+```
+
+Medium Dial-up with Jitter:
+
+```md
+-incoming
+delay 200ms
+delay-distro 50ms
+loss 4%
+rate 1Mbps
+-outgoing
+delay 200ms
+delay-distro 50ms
+loss 4%
+rate 500Kbps
+```
+
+Poor Dial-up with Jitter:
+
+```md
+-incoming
+delay 300ms
+delay-distro 75ms
+loss 6%
+rate 500Kbps
+-outgoing
+delay 300ms
+delay-distro 75ms
+loss 6%
+rate 250Kbps
+```
+
+**Wi-Fi Profiles with Jitter:**
+
+Good Wi-Fi with Jitter:
 
 ```md
 -incoming
 delay 10ms
+delay-distro 2ms
 loss 0%
 rate 10Mbps
 -outgoing
 delay 10ms
+delay-distro 2ms
 loss 0%
 rate 5Mbps
 ```
 
-Medium Wi-Fi:
+Medium Wi-Fi with Jitter:
 
 ```md
 -incoming
 delay 20ms
+delay-distro 5ms
 loss 1%
 rate 5Mbps
 -outgoing
 delay 20ms
+delay-distro 5ms
 loss 1%
 rate 2.5Mbps
 ```
 
-Poor Wi-Fi:
+Poor Wi-Fi with Jitter:
 
 ```md
 -incoming
 delay 30ms
+delay-distro 7ms
 loss 2%
 rate 2.5Mbps
 -outgoing
 delay 30ms
+delay-distro 7ms
 loss 2%
 rate 1.25Mbps
 ```
 
-**Satellite Profiles:**
+**Satellite Profiles with Jitter:**
 
-Good Satellite:
+Good Satellite with Jitter:
 
 ```md
 -incoming
 delay 600ms
+delay-distro 150ms
 loss 0%
 rate 1Mbps
+
+
 -outgoing
 delay 600ms
+delay-distro 150ms
 loss 0%
 rate 500Kbps
 ```
 
-Medium Satellite:
+Medium Satellite with Jitter:
 
 ```md
 -incoming
 delay 800ms
+delay-distro 200ms
 loss 1%
 rate 500Kbps
 -outgoing
 delay 800ms
+delay-distro 200ms
 loss 1%
 rate 250Kbps
 ```
 
-Poor Satellite:
+Poor Satellite with Jitter:
 
 ```md
 -incoming
 delay 1000ms
+delay-distro 250ms
 loss 2%
 rate 250Kbps
 -outgoing
 delay 1000ms
+delay-distro 250ms
 loss 2%
 rate 125Kbps
 ```
-
-
-**DSL Profiles:**
-
-Poor DSL:
-
-```md
--incoming
-delay 100ms
-loss 5%
-rate 1Mbps
--outgoing
-delay 100ms
-loss 5%
-rate 500Kbps
-```
-
-Medium DSL:
-
-```md
--incoming
-delay 80ms
-loss 3%
-rate 2Mbps
--outgoing
-delay 80ms
-loss 3%
-rate 1Mbps
-```
-
-Good DSL:
-
-```md
--incoming
-delay 60ms
-loss 2%
-rate 5Mbps
--outgoing
-delay 60ms
-loss 2%
-rate 2.5Mbps
-```
-
-**Dial-up Profiles:**
-
-Poor Dial-up:
-
-```md
--incoming
-delay 300ms
-loss 10%
-rate 500Kbps
--outgoing
-delay 300ms
-loss 10%
-rate 250Kbps
-```
-
-Medium Dial-up:
-
-```md
--incoming
-delay 200ms
-loss 5%
-rate 1Mbps
--outgoing
-delay 200ms
-loss 5%
-rate 500Kbps
-```
-
-Good Dial-up:
-
-```md
--incoming
-delay 100ms
-loss 2%
-rate 2Mbps
--outgoing
-delay 100ms
-loss 2%
-rate 1Mbps
-```
-
-
-
-
-**Poor 4G with Custom Loss:**
-
-```md
--incoming
-delay 60ms
-loss 10%
-rate 2Mbps
--outgoing
-delay 60ms
-loss 10%
-rate 1Mbps
-```
-
-**Poor 3G with Custom Loss:**
-
-```md
--incoming
-delay 80ms
-loss 15%
-rate 1Mbps
--outgoing
-delay 80ms
-loss 15%
-rate 500Kbps
-```
-
-**Medium 4G with Custom Loss:**
-
-```md
--incoming
-delay 40ms
-loss 5%
-rate 5Mbps
--outgoing
-delay 40ms
-loss 5%
-rate 2.5Mbps
-```
-
-**Wi-Fi with Custom Loss:**
-
-```md
--incoming
-delay 30ms
-loss 5%
-rate 10Mbps
--outgoing
-delay 30ms
-loss 5%
-rate 5Mbps
-```
-
