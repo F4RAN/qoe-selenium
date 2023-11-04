@@ -347,4 +347,44 @@ loss 0%
 rate 5Mbps
 ```
 
+High Jitter:
+```md
+-incoming
+delay 30ms
+delay-distro 100ms
+loss 0%
+rate 10Mbps
+-outgoing
+delay 30ms
+delay-distro 100ms
+loss 0%
+rate 5Mbps
+```
 
+High Loss:
+```md
+-incoming
+delay 30ms
+delay-distro 10ms
+loss 20%
+rate 10Mbps
+-outgoing
+delay 30ms
+delay-distro 10ms
+loss 20%
+rate 5Mbps
+```
+
+Low Rate:
+```md
+-incoming
+delay 30ms
+delay-distro 10ms
+loss 5%
+rate 25Mbps
+-outgoing
+delay 30ms
+delay-distro 10ms
+loss 5%
+rate 25Kbps
+```
