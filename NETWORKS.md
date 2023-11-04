@@ -381,10 +381,10 @@ Low Rate:
 delay 30ms
 delay-distro 10ms
 loss 5%
-rate 25Mbps
+rate 100Kbps
 -outgoing
 delay 30ms
 delay-distro 10ms
 loss 5%
-rate 25Kbps
+rate 50Kbps
 ```
