@@ -330,3 +330,21 @@ delay-distro 250ms
 loss 2%
 rate 125Kbps
 ```
+
+*** Custom Profiles ***
+
+High Delay:
+```md
+-incoming
+delay 500ms
+delay-distro 5ms
+loss 0%
+rate 10Mbps
+-outgoing
+delay 500ms
+delay-distro 5ms
+loss 0%
+rate 5Mbps
+```
+
+
