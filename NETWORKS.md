@@ -1,5 +1,6 @@
 Each configs contains 2 blocks '-incoming' and '-outgoing' in your config.txt file you should use this keys or leave it empty at all ( In the windows systems )
 
+in each config you can just remove `delay-distro` to have natural config ( delay-distro = jitter )
 
 **4G Profiles with Jitter:**
 
