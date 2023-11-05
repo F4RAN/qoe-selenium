@@ -84,7 +84,7 @@ docker run -d --name medium-3g -v $(pwd)/aparat_file.txt:/usr/src/app/aparat_fil
 ```
 docker attach medium-3g
 ```
-you can quit with `Cntrl-p``Cntrl-q`  not `Cntrl-c`
+you can quit with `Cntrl-p` `Cntrl-q`  not `Cntrl-c`
 
 
 #### Monitor databases
