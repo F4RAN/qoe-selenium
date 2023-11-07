@@ -389,7 +389,7 @@ loss 5%
 rate 50Kbps
 ```
 
-** Custom 1 **
+**Custom 1**
 
 Poor Network with High Jitter and Loss:
 
@@ -406,7 +406,7 @@ loss 15%
 rate 250Kbps
 ```
 
-** Custom 2 **
+**Custom 2**
 
 Medium Network with Moderate Jitter and Loss:
 
@@ -423,7 +423,7 @@ loss 5%
 rate 1Mbps
 ```
 
-** Custom 3 **
+**Custom 3**
 
 Medium Network with Higher Jitter and Loss:
 
