@@ -388,7 +388,9 @@ delay-distro 10ms
 loss 5%
 rate 50Kbps
 ```
+
 *** Custom 1 ***
+
 Poor Network with High Jitter and Loss:
 
 ```md
@@ -405,6 +407,7 @@ rate 250Kbps
 ```
 
 *** Custom 2 ***
+
 Medium Network with Moderate Jitter and Loss:
 
 ```md
@@ -421,6 +424,7 @@ rate 1Mbps
 ```
 
 *** Custom 3 ***
+
 Medium Network with Higher Jitter and Loss:
 
 ```md
