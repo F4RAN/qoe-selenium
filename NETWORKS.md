@@ -440,3 +440,17 @@ loss 15%
 rate 750Kbps
 ```
 
+**Custom 4**
+
+```md
+-incoming
+delay 70ms
+delay-distro 10ms
+loss 5%
+rate 1.8Mbps
+-outgoing
+delay 70ms
+delay-distro 10ms
+loss 5%
+rate 900Kbps
+```
