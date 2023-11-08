@@ -441,7 +441,7 @@ rate 750Kbps
 ```
 
 **Custom 4**
-
+Network with Variable Jitter and Loss:
 ```md
 -incoming
 delay 70ms
