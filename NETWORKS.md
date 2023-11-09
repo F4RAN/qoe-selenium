@@ -441,6 +441,7 @@ rate 750Kbps
 ```
 
 **Custom 4**
+
 Network with Variable Jitter and Loss:
 ```md
 -incoming
@@ -456,6 +457,7 @@ rate 900Kbps
 ```
 
 **Custom 5**
+
 Chaotic Network with High Jitter and Variable Loss:
 ```md
 -incoming
@@ -471,6 +473,7 @@ rate 450Kbps
 ```
 
 **Custom 6**
+
 Random Network with Periodic Jitter and Loss:
 ```md
 -incoming
@@ -486,6 +489,7 @@ rate 600Kbps
 ```
 
 **Custom 7**
+
 Fluctuating Network with Oscillating Jitter and Loss:
 ```md
 -incoming
