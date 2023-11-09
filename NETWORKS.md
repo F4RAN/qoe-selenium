@@ -454,3 +454,48 @@ delay-distro 10ms
 loss 5%
 rate 900Kbps
 ```
+
+**Custom 5**
+Chaotic Network with High Jitter and Variable Loss:
+```md
+-incoming
+delay 70ms
+delay-distro 40ms
+loss 15%
+rate 900Kbps
+-outgoing
+delay 70ms
+delay-distro 40ms
+loss 15%
+rate 450Kbps
+```
+
+**Custom 6**
+Random Network with Periodic Jitter and Loss:
+```md
+-incoming
+delay 80ms
+delay-distro 10ms
+loss 8%
+rate 1.2Mbps
+-outgoing
+delay 80ms
+delay-distro 10ms
+loss 8%
+rate 600Kbps
+```
+
+**Custom 7**
+Fluctuating Network with Oscillating Jitter and Loss:
+```md
+-incoming
+delay 60ms
+delay-distro 30ms
+loss 10%
+rate 1.5Mbps
+-outgoing
+delay 60ms
+delay-distro 30ms
+loss 10%
+rate 750Kbps
+```
