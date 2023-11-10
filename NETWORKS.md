@@ -503,3 +503,53 @@ delay-distro 30ms
 loss 10%
 rate 750Kbps
 ```
+
+**Custom 8**
+
+Unpredictable Network with Rapid Jitter and Loss:
+
+```md
+-incoming
+delay 40ms
+delay-distro 5ms
+loss 6%
+rate 2.5Mbps
+-outgoing
+delay 40ms
+delay-distro 5ms
+loss 6%
+rate 1.25Mbps
+```
+
+**Custom 9**
+
+Variable Network with Sudden Jitter Spikes and Loss:
+
+```md
+-incoming
+delay 60ms
+delay-distro 20ms
+loss 10%
+rate 1.8Mbps
+-outgoing
+delay 60ms
+delay-distro 20ms
+loss 10%
+rate 900Kbps
+```
+**Custom 10**
+Intermittent Network with Periodic Outages and Recovery:
+
+```md
+-incoming
+delay 80ms
+delay-distro 10ms
+loss 8%
+rate 1.2Mbps
+-outgoing
+delay 80ms
+delay-distro 10ms
+loss 8%
+rate 600Kbps
+```
+
