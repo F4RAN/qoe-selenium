@@ -538,6 +538,7 @@ loss 10%
 rate 900Kbps
 ```
 **Custom 10**
+
 Intermittent Network with Periodic Outages and Recovery:
 
 ```md
