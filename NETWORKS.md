@@ -331,7 +331,7 @@ loss 2%
 rate 125Kbps
 ```
 
-*** Custom Profiles ***
+## Custom Profiles
 
 High Delay:
 ```md
