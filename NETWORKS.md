@@ -554,3 +554,57 @@ loss 8%
 rate 600Kbps
 ```
 
+
+**Custom 11**
+
+Pulsating Network with Pulsed Jitter and Loss:
+
+```md
+-incoming
+delay 50ms
+delay-distro 15ms
+loss 7%
+rate 1.5Mbps
+-outgoing
+delay 50ms
+delay-distro 15ms
+loss 7%
+rate 750Kbps
+```
+
+**Custom 12**
+
+Stochastic Network with Randomized Jitter and Loss:
+
+```md
+-incoming
+delay 70ms
+delay-distro 25ms
+loss 12%
+rate 1.2Mbps
+-outgoing
+delay 70ms
+delay-distro 25ms
+loss 12%
+rate 600Kbps
+```
+
+
+**Custom 13**
+
+Wave-like Network with Wavy Jitter and Loss:
+
+```md
+-incoming
+delay 60ms
+delay-distro 30ms
+loss 10%
+rate 1.8Mbps
+-outgoing
+delay 60ms
+delay-distro 30ms
+loss 10%
+rate 900Kbps
+```
+
+
