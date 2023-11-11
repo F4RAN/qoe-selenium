@@ -608,3 +608,54 @@ rate 900Kbps
 ```
 
 
+**Custom 14**
+
+Chaotic Network with Intermittent Jitter and Loss:
+
+```md
+-incoming
+delay 60ms
+delay-distro 20ms
+loss 15%
+rate 1.5Mbps
+-outgoing
+delay 60ms
+delay-distro 20ms
+loss 15%
+rate 750Kbps
+```
+
+**Custom 15**
+
+Bursty Network with Burst Jitter and Loss:
+
+```md
+-incoming
+delay 40ms
+delay-distro 5ms
+loss 8%
+rate 2Mbps
+-outgoing
+delay 40ms
+delay-distro 5ms
+loss 8%
+rate 1Mbps
+```
+
+**Custom 16**
+Ephemeral Network with Flickering Jitter and Loss:
+
+```md
+-incoming
+delay 70ms
+delay-distro 15ms
+loss 12%
+rate 1.2Mbps
+-outgoing
+delay 70ms
+delay-distro 15ms
+loss 12%
+rate 600Kbps
+```
+
+
