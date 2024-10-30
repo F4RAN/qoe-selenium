@@ -2,6 +2,52 @@ Each configs contains 2 blocks '-incoming' and '-outgoing' in your config.txt fi
 
 in each config you can just remove `delay-distro` to have natural config ( delay-distro = jitter )
 
+**5G Profiles**
+Good 5G with Jitter:
+
+```md
+-incoming
+delay 10ms
+delay-distro 2ms
+loss 0%
+rate 100Mbps
+-outgoing
+delay 10ms
+delay-distro 2ms
+loss 0%
+rate 50Mbps
+```
+
+Medium 5G with Jitter:
+
+```
+-incoming
+delay 20ms
+delay-distro 5ms
+loss 0.5%
+rate 50Mbps
+-outgoing
+delay 20ms
+delay-distro 5ms
+loss 0.5%
+rate 25Mbps
+```
+
+Poor 5G with Jitter:
+
+```
+-incoming
+delay 40ms
+delay-distro 10ms
+loss 1%
+rate 25Mbps
+-outgoing
+delay 40ms
+delay-distro 10ms
+loss 1%
+rate 12.5Mbps
+```
+
 **4G Profiles with Jitter:**
 
 Good 4G with Jitter:
