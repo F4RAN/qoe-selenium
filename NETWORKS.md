@@ -4,6 +4,65 @@ in each config you can just remove `delay-distro` to have natural config ( delay
 
 **5G Profiles**
 
+Ultra-Low Latency 5G:
+```md
+-incoming
+delay 1ms
+loss 0%
+rate 1000Mbps
+-outgoing
+delay 1ms
+loss 0%
+rate 500Mbps
+```
+High-Speed 5G:
+```md
+-incoming
+delay 10ms
+loss 0%
+rate 800Mbps
+-outgoing
+delay 10ms
+loss 0%
+rate 400Mbps
+```
+Standard 5G:
+```md
+-incoming
+delay 20ms
+loss 0.1%
+rate 300Mbps
+-outgoing
+delay 20ms
+loss 0.1%
+rate 150Mbps
+```
+```md
+Reduced Speed 5G:
+
+-incoming
+delay 30ms
+loss 0.5%
+rate 100Mbps
+-outgoing
+delay 30ms
+loss 0.5%
+rate 50Mbps
+```
+
+Congested 5G:
+```md
+-incoming
+delay 50ms
+loss 1%
+rate 50Mbps
+-outgoing
+delay 50ms
+loss 1%
+rate 25Mbps
+```
+
+
 Good 5G with Jitter:
 
 ```md
