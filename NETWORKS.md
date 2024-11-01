@@ -37,9 +37,8 @@ delay 20ms
 loss 0.1%
 rate 150Mbps
 ```
-```md
 Reduced Speed 5G:
-
+```md
 -incoming
 delay 30ms
 loss 0.5%
