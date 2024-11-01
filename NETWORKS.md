@@ -4,6 +4,45 @@ in each config you can just remove `delay-distro` to have natural config ( delay
 
 **5G Profiles**
 
+Optimized Video Streaming 5G:
+
+```md
+-incoming
+delay 15ms
+loss 0.05%
+rate 500Mbps
+-outgoing
+delay 15ms
+loss 0.05%
+rate 250Mbps
+```
+
+IoT-Optimized 5G:
+
+```md
+-incoming
+delay 5ms
+loss 0.1%
+rate 50Mbps
+-outgoing
+delay 5ms
+loss 0.1%
+rate 25Mbps
+```
+
+Challenged 5G (High Interference):
+
+```
+-incoming
+delay 70ms
+loss 3%
+rate 20Mbps
+-outgoing
+delay 70ms
+loss 3%
+rate 10Mbps
+```
+
 Ultra-Low Latency 5G:
 ```md
 -incoming
