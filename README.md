@@ -1,3 +1,6 @@
+# Cite this paper if you've used this repo
+`Panahi, P. H. S., Jalilvand, A. H., & Diyanat, A. (2025). An efficient network-based QoE assessment framework for multimedia networks using a machine learning approach. IEEE Open Journal of the Communications Society.`
+
 # PLEASE CREATE FILES AT FIRST 
 
 At first you must to create a shared folder with 3 necessary files:
